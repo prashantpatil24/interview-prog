@@ -1,0 +1,72 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>Todo App</head>
+<body>
+<div class="root">
+    <input id="todo" value="" placeholder="enter todo" />
+    <button id="add-todo" value="">Add Todo</button>
+    <ul id="todos"></ul>
+</div>
+</body>
+<script>
+  
+const todos = []
+  const todo = document.getElementById('todo')
+  const btnAdd = document.getElementById("add-todo")
+  const list = document.getElementById("todos")
+
+
+  //render todos
+  function renderTodo(){
+       list.innerHTML = "";
+       todos.forEach((todo,index)=>{
+         const li = document.createElement("li")
+         const completedStyle = todo.completed ? 'line-through': 'normal'
+         li.innerHTML = `
+               <span style="text-decoration:${completedStyle}">
+                   ${todo.text}
+               </span>
+               <button onClick="markTodo(${index})">Mark Completed</button>
+               <button onClick="deleteTodo(${index})">Delete</button>
+         `
+         list.append(li)
+      })
+
+
+  }
+
+
+  //add todo
+  function addTodo (){
+     const value = todo.value.trim()
+     if(!value){
+       return
+     }
+     todos.push({
+        text : value,
+        completed : false
+     })
+     todo.value = ""
+     renderTodo()
+  }
+
+
+  //mark completed
+  function markTodo(index){
+       todos[index].completed=!todos[index].completed;
+       renderTodo()
+  }
+  //delete todo
+  function deleteTodo(index){
+     todos.splice(index,1);
+     renderTodo()
+  }
+
+
+  btnAdd.addEventListener("click", addTodo)
+</script>
+</html>
+
+
+```

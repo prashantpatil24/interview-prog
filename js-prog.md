@@ -107,6 +107,24 @@ function uniqueCharacters(str) {
 
 console.log(uniqueCharacters("programming")); //['p', 'o', 'a', 'i', 'n']
 ```
+# 7. Find Vowels in string
+ 
+```javascript
+function findVowels(str) {
+    const vowels = ['a','e','i','o','u']
+    const char = []
+    for (const ch of str) {
+        if(vowels.includes(ch)){
+            char.push(ch)
+        }
+    }
+
+    return char;
+}
+
+console.log(findVowels("programming")); 
+```
+
 
 
 

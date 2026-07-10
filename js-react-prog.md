@@ -675,3 +675,47 @@ export default function App() {
     console.log("Original:", a);
     console.log("Recursive Copy:", d);
 ```
+# 18. Memoization
+
+``` javascript
+
+function memo() {
+    const cache = {};
+
+    return function (val) {
+        if (val in cache) {
+            console.log("Cache Hit");
+            return cache[val];
+        }
+
+        console.log("Calculating...");
+
+        const result = val + 10;
+
+        cache[val] = result;
+
+        return result;
+    };
+}
+
+const calculate = memo();
+
+console.log(calculate(10));  
+//Calculating...
+//20
+console.log(calculate(10));
+//Cache Hit
+//20
+console.log(calculate(20));
+//Calculating...
+//30
+console.log(calculate(30));
+//Calculating...
+//40
+console.log(calculate(10));
+//Cache Hit
+//20
+
+```
+
+

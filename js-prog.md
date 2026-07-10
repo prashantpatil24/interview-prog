@@ -260,5 +260,170 @@ export default function App() {
 }
 
 ```
+# 10. theme change with Context
+
+```javascript
+import React, { createContext, useContext, useState } from "react";
+
+const ThemeContext = createContext("light");
+
+function ThemeButton() {
+    const theme = useContext(ThemeContext);
+
+    const background = theme === "light" ? "#eee" : "#333";
+    const color = theme === "light" ? "#000" : "#fff";
+
+    return (
+        <button
+            style={{
+                background,
+                color,
+                margin: "10px 10px",
+                padding: "10px 20px",
+                border: "none",
+                cursor: "pointer"
+            }}
+        >
+            Current Theme: {theme}
+        </button>
+    );
+}
+
+export default function App() {
+    const [theme, setTheme] = useState("light");
+
+    const toggleTheme = () => {
+        setTheme(prev => (prev === "light" ? "dark" : "light"));
+    };
+
+    return (
+        <ThemeContext.Provider value={theme}>
+            <h2>Theme with Context API</h2>
+
+            <ThemeButton />
+
+            <button onClick={toggleTheme}>
+                Toggle Theme
+            </button>
+        </ThemeContext.Provider>
+    );
+}
+```
+# 11. Task (add, update, delete) with React
+
+```javascript
+import React, { useState } from "react";
+
+export default function App() {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
+  const [editId, setEditId] = useState(null);
+
+  // Add Task
+  const addTask = () => {
+    if (!newTask.trim()) return;
+
+    const task = {
+      id: Date.now(),
+      text: newTask.trim(),
+    };
+
+    setTasks((prev) => [...prev, task]);
+    setNewTask("");
+  };
+
+  // Edit Task
+  const editTask = (id) => {
+    const task = tasks.find((t) => t.id === id);
+
+    if (!task) return;
+
+    setNewTask(task.text);
+    setEditId(id);
+  };
+
+  // Update Task
+  const updateTask = () => {
+    if (!newTask.trim()) return;
+
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === editId
+          ? { ...task, text: newTask.trim() }
+          : task
+      )
+    );
+
+    setNewTask("");
+    setEditId(null);
+  };
+
+  // Delete Task
+  const deleteTask = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+
+    // Reset edit mode if the edited task is deleted
+    if (editId === id) {
+      setEditId(null);
+      setNewTask("");
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: "500px", margin: "30px auto" }}>
+      <h2>Todo CRUD App</h2>
+
+      <input
+        type="text"
+        placeholder="Enter task..."
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+      />
+
+      {editId === null ? (
+        <button onClick={addTask}>Add</button>
+      ) : (
+        <button onClick={updateTask}>Update</button>
+      )}
+
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id} style={{ margin: "10px 0" }}>
+            {task.text}
+
+            <button
+              style={{ marginLeft: "10px" }}
+              onClick={() => editTask(task.id)}
+            >
+              Edit
+            </button>
+
+            <button
+              style={{ marginLeft: "5px" }}
+              onClick={() => deleteTask(task.id)}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {tasks.length === 0 && <p>No tasks available.</p>}
+    </div>
+  );
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 

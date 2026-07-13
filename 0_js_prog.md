@@ -128,74 +128,7 @@ function findVowels(str) {
 console.log(findVowels("programming")); 
 ```
 
-# 7. React Product List with Pagination
-
-``` javascript
-import React, { useEffect, useState } from "react";
-
-export default function App() {
-  const limit = 10;
-
-  const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      const skip = (page - 1) * limit;
-
-      try {
-        const res = await fetch(
-          `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
-        );
-
-        const data = await res.json();
-
-        setProducts(data.products);
-        setTotalPages(Math.ceil(data.total / limit));
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    fetchProducts();
-  }, [page]);
-
-  return (
-    <div>
-      <h2>Products</h2>
-
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.title} - ${product.price}
-          </li>
-        ))}
-      </ul>
-
-      <button
-        disabled={page === 1}
-        onClick={() => setPage((p) => p - 1)}
-      >
-        Prev
-      </button>
-
-      <span style={{ margin: "0 10px" }}>
-        Page {page} of {totalPages}
-      </span>
-
-      <button
-        disabled={page === totalPages}
-        onClick={() => setPage((p) => p + 1)}
-      >
-        Next
-      </button>
-    </div>
-  );
-}
-```
-
-# 8. Promise Retry with Timeout Mechanism
+# 7. Promise Retry with Timeout Mechanism
 
 ``` javascript
 
@@ -236,193 +169,7 @@ retry(fetchData, 4, 2000)
     .catch(console.error);
 ```
 
-# 9. Counter using useReducer
-
-``` javascript
-import React, { useReducer } from "react";
-
-const initialState = 0;
-
-function reducer(state, action) {
-    switch (action.type) {
-        case "INCREMENT": return state + 1;
-        case "DECREMENT": return state - 1;
-        case "RESET": return initialState;
-        default: return state;
-    }
-}
-
-export default function App() {
-    const [count, dispatch] = useReducer(reducer, initialState);
-
-    return (
-        <div>
-            <h2>Counter using useReducer</h2>
-            <p>{count}</p>
-            <button onClick={() => dispatch({ type: "INCREMENT" })}> Increment </button>
-            <button onClick={() => dispatch({ type: "DECREMENT" })}> Decrement </button>
-            <button onClick={() => dispatch({ type: "RESET" })}> Reset </button>
-        </div>
-    );
-}
-```
-
-# 10. Theme Switching with Context API
-
-``` javascript
-import React, { createContext, useContext, useState } from "react";
-
-const ThemeContext = createContext("light");
-
-function ThemeButton() {
-    const theme = useContext(ThemeContext);
-
-    const background = theme === "light" ? "#eee" : "#333";
-    const color = theme === "light" ? "#000" : "#fff";
-
-    return (
-        <button
-            style={{
-                background,
-                color,
-                margin: "10px 10px",
-                padding: "10px 20px",
-                border: "none",
-                cursor: "pointer"
-            }}
-        >
-            Current Theme: {theme}
-        </button>
-    );
-}
-
-export default function App() {
-    const [theme, setTheme] = useState("light");
-
-    const toggleTheme = () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
-    };
-
-    return (
-        <ThemeContext.Provider value={theme}>
-            <h2>Theme with Context API</h2>
-
-            <ThemeButton />
-
-            <button onClick={toggleTheme}>
-                Toggle Theme
-            </button>
-        </ThemeContext.Provider>
-    );
-}
-```
-
-# 11. React Todo CRUD (Add, Update, Delete)
-
-``` javascript
-import React, { useState } from "react";
-
-export default function App() {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
-  const [editId, setEditId] = useState(null);
-
-  // Add Task
-  const addTask = () => {
-    if (!newTask.trim()) return;
-
-    const task = {
-      id: Date.now(),
-      text: newTask.trim(),
-    };
-
-    setTasks((prev) => [...prev, task]);
-    setNewTask("");
-  };
-
-  // Edit Task
-  const editTask = (id) => {
-    const task = tasks.find((t) => t.id === id);
-
-    if (!task) return;
-
-    setNewTask(task.text);
-    setEditId(id);
-  };
-
-  // Update Task
-  const updateTask = () => {
-    if (!newTask.trim()) return;
-
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === editId
-          ? { ...task, text: newTask.trim() }
-          : task
-      )
-    );
-
-    setNewTask("");
-    setEditId(null);
-  };
-
-  // Delete Task
-  const deleteTask = (id) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id));
-
-    // Reset edit mode if the edited task is deleted
-    if (editId === id) {
-      setEditId(null);
-      setNewTask("");
-    }
-  };
-
-  return (
-    <div style={{ maxWidth: "500px", margin: "30px auto" }}>
-      <h2>Todo CRUD App</h2>
-
-      <input
-        type="text"
-        placeholder="Enter task..."
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-      />
-
-      {editId === null ? (
-        <button onClick={addTask}>Add</button>
-      ) : (
-        <button onClick={updateTask}>Update</button>
-      )}
-
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id} style={{ margin: "10px 0" }}>
-            {task.text}
-
-            <button
-              style={{ marginLeft: "10px" }}
-              onClick={() => editTask(task.id)}
-            >
-              Edit
-            </button>
-
-            <button
-              style={{ marginLeft: "5px" }}
-              onClick={() => deleteTask(task.id)}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      {tasks.length === 0 && <p>No tasks available.</p>}
-    </div>
-  );
-}
-```
-
-# 12. Count Element Frequency in an Array
+# 8. Count Element Frequency in an Array
 
 ``` javascript
 
@@ -443,7 +190,7 @@ console.log(countByReduce([1,2,3,1,2,3,4,5,7,1,2,4]))
 //{ '1': 3, '2': 3, '3': 2, '4': 2, '5': 1, '7': 1 }
 ```
 
-# 13. Find First Non-Repeated Character
+# 9. Find First Non-Repeated Character
 
 ``` javascript
 
@@ -468,81 +215,7 @@ function findFirstNotRepeatedChar(str) {
 console.log(findFirstNotRepeatedChar("abcdefabcdefgh")); // g
 ```
 
-# 14. Toggle Theme and Apply to Body
-
-``` javascript
-
-export default function App() {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
-
-  useEffect(() => {
-    document.body.style.backgroundColor =
-      theme === "light" ? "#eee" : "#333";
-
-    document.body.style.color =
-      theme === "light" ? "#000" : "#fff";
-  }, [theme]);
-
-  return (
-    <div>
-      <h2>Theme Switcher</h2>
-
-      <p>Current Theme: {theme}</p>
-
-      <button onClick={toggleTheme}>
-        Toggle Theme
-      </button>
-    </div>
-  );
-}
-```
-
-# 15. Debounced Search in React
-
-``` javascript
-
-import { useEffect, useState } from "react";
-
-function useDebounce(value, delay) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-
-export default function App() {
-  const [value, setValue] = useState("");
-
-  const debouncedValue = useDebounce(value, 1000);
-
-  return (
-    <div>
-      <h2>Debounced Search</h2>
-
-      <p>Debounced Value: {debouncedValue}</p>
-
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </div>
-  );
-}
-```
-
-# 16. Debounced Search in JavaScript
+# 10. Debounced Search in JavaScript
 
 ``` javascript
 
@@ -617,7 +290,7 @@ export default function App() {
 </html>
 ```
 
-# 17. Deep Copy in JavaScript
+# 11. Deep Copy in JavaScript
 
 ``` javascript
 
@@ -675,7 +348,7 @@ export default function App() {
     console.log("Original:", a);
     console.log("Recursive Copy:", d);
 ```
-# 18. Memoization
+# 11. Memoization
 
 ``` javascript
 
@@ -717,5 +390,283 @@ console.log(calculate(10));
 //20
 
 ```
+# 12. Anagram
+
+``` javascript
+  
+  //default method
+  function isAnagram(source, target){
+    return source.split("").sort().join("") === target.split("").sort().join("")
+  }
+  console.log(isAnagram('listen','silent'))
+
+  //by custom function
+  function isAnagramByCustom(source, target){
+    const count = 0
+    for(let char of source){
+      map[char] = (map[char] || 0) + 1
+    }
+    for(let char of target){
+      if(!count[char]) return false
+      count[char]--
+    }
+    return true
+  }
+  console.log(isAnagramByCustom('listen','silent'))
+```
+
+# 13. Bracket Matcher
+
+```javascript
+
+function bracketMatcher(str) {
+  const stack = [];
+
+  for (let i of str) {
+    if (i == '(' || i == '[' || i == '{') {
+      stack.push(i);
+    } else if (i == ')' || i == ']' || i == '}') {
+      if (stack.length === 0) {
+        return false;
+      }
+      let top = stack.pop();
+      if (
+        (i == '(' && top != ')') ||
+        (i == '{' && top != '}') ||
+        (i == '[' && top != ']')
+      ) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0 ? true : false;
+}
+console.log(bracketMatcher('(coder)(byte)')); // true
+console.log(bracketMatcher('{[(])}')); // false
+console.log(bracketMatcher('((()))')); // true
+console.log(bracketMatcher('(()')); // false
+
+```
+# 14. Sum of equal target
+
+```javascript
+
+//Input const arr = [2,3,8,7,6]
+// target  9
+// output [0,3]
+
+function findSumOfEqualTarget(arr, target){
+   const map = new Map()
+
+   for(let i=0; i< arr.length; i++){
+      const sub = target - arr[i] 
+      if(map.has(sub)){
+        return [map.get(sub),i]
+      }
+      map.set(arr[i], i)
+   }
+   return [] 
+}
+/*
+sub 7 => map Map(0) {}
+sub 6 => map Map(1) { 2 => 0 }
+sub 1 => map Map(2) { 2 => 0, 3 => 1 }
+sub 2 => map Map(3) { 2 => 0, 3 => 1, 8 => 2 }
+[ 0, 3 ]
+*/
+console.log(findSumOfEqualTarget([2,3,8,7,6],9))//[0,3]
+
+```
+# 14. Find the largest number with the second-highest frequency.
+
+```javascript
+
+//Input [1,2,2,2,3,3,3,4,4,5,5]
+//Output  5
+
+function findSecondLargest(arr) {
+    const freq = {};
+
+    for (const num of arr) {
+        freq[num] = (freq[num] || 0) + 1;
+    }
+
+    const frequencies = [
+        ...new Set(Object.values(freq))
+    ].sort((a, b) => b - a);
+
+    if (frequencies.length < 2) {
+        return -1;
+    }
+
+    const secondHighest = frequencies[1];
+
+    const candidates = Object.keys(freq)
+        .filter(key => freq[key] === secondHighest)
+        .map(Number);
+
+    return Math.max(...candidates);
+}
+
+console.log(findSecondLargest([1,2,2,2,3,3,3,4,4,5,5])); // 5
+```
+# 15. Custom Map
+
+```javascript
+
+Array.prototype.myMap = function (cb){
+  const result = []
+  for(let i=0; i< this.length; i++){
+    result.push(cb(this[i],i,this))
+  }
+  return result
+}
+const result = [1,2,3].myMap(item => item*2)
+console.log(result) //[ 2, 4, 6 ]
+
+```
+# 16. Custom Filter
+
+```javascript
+
+Array.prototype.myFilter = function (cb){
+  const result = []
+  for(let i=0; i< this.length;i++){
+    if(cb(this[i], i, this)){
+      result.push(this[i])
+    }
+  }
+  return result
+}
+const result = [1,2,3,4].myFilter(item => item%2 == 0)
+console.log(result) //[ 2, 4]
+
+```
+# 17. Custom Reducer
+
+```javascript
+
+Array.prototype.myReducer = function(callback, initialValue) {
+   let accumulator = initialValue;
+   let startIndex = 0;
+   
+   // Handle no initial value
+   if (accumulator === undefined) {
+       accumulator = this[0];
+       startIndex = 1;
+   }
+   for (let i = startIndex; i < this.length; i++) {
+       accumulator = callback(accumulator, this[i], i, this);
+   }
+   return accumulator;
+};
+
+const result = [1,2,3,4].myReducer((acc,item)=> acc = acc + item ,0)
+console.log(result) //10
+
+```
+
+# 18. Flat nested array 
+
+```javascript
+
+//default method 
+const flatArray = [1,2,3,[4,5,6],[5,6]].flat(Infinity)
+console.log(flatArray)
+
+//custom method
+function flatten(arr){
+ return arr.reduce((acc,item)=>{
+   return acc.concat(Array.isArray(item) ? flatten(item) : item)
+ },[])
+}
+
+console.log(flatten([1,2,3,[4,5,6],[5,6]]))
+```
+# 19. Group By key
+
+```javascript
+
+const users = [
+ { name: "A", age: 20 },
+ { name: "B", age: 20 },
+ { name: "C", age: 30 }
+];
+
+function groupByKey(arr){
+    const map = {}
+
+    for(let [key,value] of arr.entries()){
+      const {name, age} = value
+      if(!map[age]){
+          map[age] = []
+      }
+      map[age].push(value)
+    }
+    return map
+}
+console.log(groupByKey(users))
+
+//by reduce method
+function groupByReduce(arr){
+  return arr.reduce((acc,ele) =>{
+     const value = ele.age
+     if(!acc[value]){
+      acc[value] = []
+     }
+     acc[value].push(ele)
+     return acc
+  }, {})
+}
+console.log(groupByReduce(users))
+//output
+/*{
+  '20': [ { name: 'A', age: 20 }, { name: 'B', age: 20 } ],
+  '30': [ { name: 'C', age: 30 } ]
+}
+*/
+
+```
+# 20. Find missing num
+
+```javascript
+function findMissingNum(arr){
+   const totalElement = arr.length + 1 
+   const result = (totalElement *(totalElement + 1)) / 2    // (5*6) / 2 = 15
+   const sum = arr.reduce((acc,item)=> acc = acc + item ,0) // 11
+   return result - sum //15-11 = 4
+}
+console.log(findMissingNum([1,2,3,5])) //4
+
+```
+
+# 20. Repeat String
+
+```javascript
+
+function getRepeatString(arr){
+   const result = []
+   for(let i=0; i <arr.length;i++){
+     const [char,num] = arr[i].split('')
+     result.push(char.repeat(num)) 
+   }
+   return result
+}
+console.log(getRepeatString(['a2','b3','c4'])) //['aa','bbb','cccc']
+
+function getRepeatStringWithReduce(arr){
+   return arr.reduce((acc,item)=>{
+       const [char,num] = item
+       acc.push(char.repeat(num))
+       return acc
+   } ,[])
+}
+console.log(getRepeatStringWithReduce(['a2','b3','c4'])) //['aa','bbb','cccc']
+
+```
+
+
+
+
 
 

@@ -1,4 +1,4 @@
-# JavaScript & React Interview Programs (Practice Collection)
+# JavaScript Interview Programs (Practice Collection)
 
 # 1. Curry Function (Infinite Currying)
 

@@ -664,7 +664,26 @@ function getRepeatStringWithReduce(arr){
 console.log(getRepeatStringWithReduce(['a2','b3','c4'])) //['aa','bbb','cccc']
 
 ```
+# 21. Reverse array
 
+```javascript
+
+const arr = [1,2,3,4,5]
+
+//slice method
+console.log(arr.slice().reverse())
+
+//spread method
+console.log([...arr].reverse())
+
+//reduce
+const c = arr.reduce((acc, item)=> [item, ...acc], [])
+console.log(c)
+
+//default method
+console.log(arr.sort((a,b) => b-a)) //modified array
+
+```
 
 
 

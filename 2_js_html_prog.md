@@ -16,6 +16,7 @@ A collection of commonly asked JavaScript DOM interview programs with complete s
 | 6 | Load More Data (Limit 100) | [Go](#6-load-more-data-with-limit-100) |
 | 7 | Product Search with Categories | [Go](#7-product-search-with-categories) |
 | 8 | Progress Bar |  [Go](#8-progress-bar) |
+| 9 | Debounced Search in JavaScript |  [Go](#9-debounce) |
 
 ---
 
@@ -1389,6 +1390,139 @@ A collection of commonly asked JavaScript DOM interview programs with complete s
 ```
 
 ---
+
+# 10. Debounced Search in JavaScript
+
+### Problem
+
+Implement a debounced search input to prevent unnecessary API calls while the user is typing.
+
+### Solution
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debounce Search</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:40px;
+}
+
+input{
+    width:300px;
+    padding:10px;
+    font-size:16px;
+}
+
+#debounce{
+    display:block;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="root">
+    <span id="debounce"></span>
+    <input
+        id="search"
+        type="text"
+        placeholder="Search..."
+    />
+</div>
+
+<script>
+
+const searchField = document.getElementById("search");
+const debounceField = document.getElementById("debounce");
+
+function debounce(fn, delay){
+
+    let timer;
+
+    return function(...args){
+
+        clearTimeout(timer);
+
+        timer = setTimeout(()=>{
+            fn(...args);
+        }, delay);
+
+    }
+
+}
+
+function handleApiCall(e){
+
+    const value = e.target.value.trim();
+
+    if(!value){
+        debounceField.textContent = "";
+        return;
+    }
+
+    debounceField.textContent = value;
+
+    console.log("API Call:", value);
+
+}
+
+const handleSearch = debounce(handleApiCall,1000);
+
+searchField.addEventListener("input", handleSearch);
+
+</script>
+
+</body>
+</html>
+```
+
+### Output
+
+```
+User types:
+r
+re
+rea
+reac
+react
+
+(wait 1 second)
+
+API Call: react
+```
+
+### Time Complexity
+
+```
+O(1)
+```
+
+### Space Complexity
+
+```
+O(1)
+```
+
+### Interview Follow-up
+
+- Difference between Debounce and Throttle?
+- Why use `clearTimeout()`?
+- Where is Debounce commonly used?
+- Can Debounce return a Promise?
+- Implement Debounce with Leading & Trailing options.
+
+⬆️ [Back to Top](#-table-of-contents)
+
+---
+
 
 
 

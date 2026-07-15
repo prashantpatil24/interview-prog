@@ -5190,7 +5190,7 @@ src/
 
 ## Interview One-Liner
 
-> **For a scalable e-commerce frontend, I would use a feature-based architecture with Redux Toolkit for client state, TanStack Query for server state, SSR for SEO-critical pages, code splitting and virtualization for performance, a reusable design system for consistency, and strong observability and security practices to support large engineering teams.**
+> For a scalable e-commerce frontend, I would use a feature-based architecture with Redux Toolkit for client state, TanStack Query for server state, SSR for SEO-critical pages, code splitting and virtualization for performance, a reusable design system for consistency, and strong observability and security practices to support large engineering teams.
 
 
 
@@ -5200,15 +5200,15 @@ src/
 
 # Design a Scalable E-commerce Frontend (2-Minute Answer)
 
-> **"For a scalable e-commerce frontend, I'd use a feature-based modular architecture with clear business domains such as Catalog, Cart, Checkout, Orders, and Authentication. This keeps teams independent and improves maintainability.**
+> "For a scalable e-commerce frontend, I'd use a feature-based modular architecture with clear business domains such as Catalog, Cart, Checkout, Orders, and Authentication. This keeps teams independent and improves maintainability.
 >
-> **For rendering, I'd adopt a hybrid strategy—SSR or ISR for SEO-critical pages like product listings and product details, while using CSR for authenticated areas such as dashboards, carts, and user profiles.**
+> For rendering, I'd adopt a hybrid strategy—SSR or ISR for SEO-critical pages like product listings and product details, while using CSR for authenticated areas such as dashboards, carts, and user profiles.
 >
-> **I'd manage server state using TanStack Query because it provides caching, background refetching, retries, and request deduplication. For client state, I'd use Redux Toolkit or Zustand depending on application complexity, while avoiding Context API for frequently changing shared state.**
+> I'd manage server state using TanStack Query because it provides caching, background refetching, retries, and request deduplication. For client state, I'd use Redux Toolkit or Zustand depending on application complexity, while avoiding Context API for frequently changing shared state.**
 >
-> **Performance would be a priority from day one through route-based code splitting, lazy loading, virtualization for large lists, CDN-backed image optimization, HTTP caching, and continuous monitoring of Core Web Vitals.**
+> Performance would be a priority from day one through route-based code splitting, lazy loading, virtualization for large lists, CDN-backed image optimization, HTTP caching, and continuous monitoring of Core Web Vitals.
 >
-> **To support long-term scalability, I'd introduce an API abstraction layer, centralized error handling, feature flags for safe releases, comprehensive testing, monitoring, logging, and a reusable design system so multiple teams can develop independently while maintaining a consistent user experience."**
+> To support long-term scalability, I'd introduce an API abstraction layer, centralized error handling, feature flags for safe releases, comprehensive testing, monitoring, logging, and a reusable design system so multiple teams can develop independently while maintaining a consistent user experience."
 
 ---
 
@@ -5216,15 +5216,15 @@ src/
 
 ## Senior-Level Answer (2 Minutes)
 
-> **"The first thing I'd determine is whether the slowdown is caused by the frontend, backend, rendering pipeline, network, or third-party integrations. Since it started immediately after a release, I'd initially treat it as a production regression.**
+> "The first thing I'd determine is whether the slowdown is caused by the frontend, backend, rendering pipeline, network, or third-party integrations. Since it started immediately after a release, I'd initially treat it as a production regression.
 >
-> **I'd review deployment timelines, compare release diffs, and evaluate whether a rollback or feature flag should be used if customer impact is significant.**
+> I'd review deployment timelines, compare release diffs, and evaluate whether a rollback or feature flag should be used if customer impact is significant.
 >
-> **Next, I'd reproduce the issue using a production build instead of the development environment. I'd analyze the application using Chrome Performance, React Profiler, Network, and Memory tools while also reviewing Core Web Vitals and Real User Monitoring (RUM) data.**
+> Next, I'd reproduce the issue using a production build instead of the development environment. I'd analyze the application using Chrome Performance, React Profiler, Network, and Memory tools while also reviewing Core Web Vitals and Real User Monitoring (RUM) data.
 >
-> **I'd inspect JavaScript bundle size, API response times, third-party scripts, rendering performance, memory growth, and unnecessary React re-renders. If the issue only occurs in production, I'd rely on source maps, production traces, throttled network and CPU simulations, and telemetry because development builds often hide production bottlenecks.**
+> I'd inspect JavaScript bundle size, API response times, third-party scripts, rendering performance, memory growth, and unnecessary React re-renders. If the issue only occurs in production, I'd rely on source maps, production traces, throttled network and CPU simulations, and telemetry because development builds often hide production bottlenecks.
 >
-> **After identifying the root cause, I'd implement the appropriate optimization—whether that's reducing bundle size, optimizing rendering, improving caching, fixing API latency, or removing expensive third-party scripts—and verify the improvement using performance metrics before closing the incident."**
+> After identifying the root cause, I'd implement the appropriate optimization—whether that's reducing bundle size, optimizing rendering, improving caching, fixing API latency, or removing expensive third-party scripts—and verify the improvement using performance metrics before closing the incident."
 
 ---
 
@@ -5293,13 +5293,13 @@ src/
 
 ## Senior-Level Answer (2 Minutes)
 
-> **"I mentor junior engineers by focusing not only on technical skills but also on engineering judgment. Rather than simply providing answers, I guide them through the reasoning process so they learn how to solve similar problems independently.**
+> "I mentor junior engineers by focusing not only on technical skills but also on engineering judgment. Rather than simply providing answers, I guide them through the reasoning process so they learn how to solve similar problems independently.
 >
-> **I regularly use code reviews and pair programming to discuss debugging strategies, trade-offs, design decisions, and performance considerations. During reviews, I explain why a solution is preferred instead of only pointing out what's wrong.**
+> I regularly use code reviews and pair programming to discuss debugging strategies, trade-offs, design decisions, and performance considerations. During reviews, I explain why a solution is preferred instead of only pointing out what's wrong.
 >
-> **As engineers grow, I gradually increase their ownership—from fixing small bugs to leading complete features—while providing the architectural context needed to make informed decisions.**
+> As engineers grow, I gradually increase their ownership—from fixing small bugs to leading complete features—while providing the architectural context needed to make informed decisions.
 >
-> **I also work to create an environment where asking questions is encouraged, mistakes are treated as learning opportunities, and feedback is constructive. My goal is to help engineers become confident, independent contributors who can mentor others in the future."**
+> I also work to create an environment where asking questions is encouraged, mistakes are treated as learning opportunities, and feedback is constructive. My goal is to help engineers become confident, independent contributors who can mentor others in the future."
 
 ---
 
@@ -5387,7 +5387,7 @@ Encourage:
 
 ## Performance Mentoring Story
 
-> **"One junior engineer was struggling with performance issues in a React screen. Instead of rewriting the implementation myself, I paired with them using React Profiler and Chrome Performance tools. Together we analyzed unnecessary re-renders, discussed optimization options, and evaluated the trade-offs of using React.memo, useMemo, and useCallback. Rather than giving the solution directly, I encouraged them to identify the bottleneck and propose improvements. Over time, they became confident in diagnosing performance issues independently and eventually started helping other teammates solve similar problems."**
+> "One junior engineer was struggling with performance issues in a React screen. Instead of rewriting the implementation myself, I paired with them using React Profiler and Chrome Performance tools. Together we analyzed unnecessary re-renders, discussed optimization options, and evaluated the trade-offs of using React.memo, useMemo, and useCallback. Rather than giving the solution directly, I encouraged them to identify the bottleneck and propose improvements. Over time, they became confident in diagnosing performance issues independently and eventually started helping other teammates solve similar problems."
 
 ---
 
@@ -5395,19 +5395,19 @@ Encourage:
 
 ### Scalable Architecture
 
-> **Use feature-based modules, hybrid rendering, dedicated server/client state management, performance optimization, and strong observability to build scalable frontends.**
+> Use feature-based modules, hybrid rendering, dedicated server/client state management, performance optimization, and strong observability to build scalable frontends.
 
 ---
 
 ### Production Performance Issue
 
-> **Treat sudden production slowdowns as regressions, verify with production telemetry, profile the application, mitigate quickly using rollback or feature flags, then optimize based on measured bottlenecks.**
+> Treat sudden production slowdowns as regressions, verify with production telemetry, profile the application, mitigate quickly using rollback or feature flags, then optimize based on measured bottlenecks.
 
 ---
 
 ### Mentoring
 
-> **I focus on building independent engineers by teaching problem-solving, encouraging ownership, providing architectural context, and creating a safe environment for learning and feedback.**
+> I focus on building independent engineers by teaching problem-solving, encouraging ownership, providing architectural context, and creating a safe environment for learning and feedback.
 
 
 # One-to-One Interview Questions
@@ -5418,24 +5418,24 @@ Encourage:
 
 ## Senior-Level Answer (2–3 Minutes)
 
-> **"One of the biggest challenges I faced was during the migration of a large e-commerce application from Angular to React. The product listing page displayed around 3,000 products, and initially the application rendered every product at once. As a result, the initial page load was slow, scrolling became laggy, and applying filters caused noticeable UI freezes.**
+> "One of the biggest challenges I faced was during the migration of a large e-commerce application from Angular to React. The product listing page displayed around 3,000 products, and initially the application rendered every product at once. As a result, the initial page load was slow, scrolling became laggy, and applying filters caused noticeable UI freezes.
 >
-> **To understand the bottleneck, I started with React DevTools Profiler. The profiler showed that every time the filter state changed in the parent component, the entire product list subtree was re-rendering. The flamegraph confirmed that every `ProductCard` component was rendering again, even when its underlying product data hadn't changed.**
+> To understand the bottleneck, I started with React DevTools Profiler. The profiler showed that every time the filter state changed in the parent component, the entire product list subtree was re-rendering. The flamegraph confirmed that every `ProductCard` component was rendering again, even when its underlying product data hadn't changed.
 >
 > **After investigating further, we identified three primary causes:**
 >
-> - **The parent component re-rendered whenever filter state changed.**
-> - **Inline callback functions such as `onAddToCart` created new function references on every render.**
-> - **Derived arrays and objects were recreated inside the render function, breaking referential equality and preventing memoization from working effectively.**
+> - The parent component re-rendered whenever filter state changed.**
+> - Inline callback functions such as `onAddToCart` created new function references on every render.**
+> - Derived arrays and objects were recreated inside the render function, breaking referential equality and preventing memoization from working effectively.
 >
 > **To address these issues, we implemented several optimizations:**
 >
-> 1. **Wrapped the `ProductCard` component with `React.memo()` so unchanged products would skip re-rendering.**
-> 2. **Used `useCallback()` to stabilize event handler references passed to child components.**
-> 3. **Memoized expensive derived values using `useMemo()` and avoided recreating objects and arrays unnecessarily.**
-> 4. **Introduced list virtualization using `react-window`, ensuring that only visible products were rendered instead of all 3,000 items.**
+> 1. Wrapped the `ProductCard` component with `React.memo()` so unchanged products would skip re-rendering.
+> 2. Used `useCallback()` to stabilize event handler references passed to child components.
+> 3. Memoized expensive derived values using `useMemo()` and avoided recreating objects and arrays unnecessarily.
+> 4. Introduced list virtualization using `react-window`, ensuring that only visible products were rendered instead of all 3,000 items.
 >
-> **After implementing these optimizations, we validated the improvements using React Profiler. The number of component renders dropped significantly, commit times decreased, scrolling became smooth, and overall page responsiveness improved considerably. The biggest lesson was that performance optimization should always be driven by measurement rather than assumptions."**
+> After implementing these optimizations, we validated the improvements using React Profiler. The number of component renders dropped significantly, commit times decreased, scrolling became smooth, and overall page responsiveness improved considerably. The biggest lesson was that performance optimization should always be driven by measurement rather than assumptions."
 
 ---
 
@@ -5480,7 +5480,7 @@ Encourage:
 
 ## Interview One-Liner
 
-> **I first measured the problem using React Profiler, identified unnecessary component re-renders caused by unstable props and large DOM rendering, then optimized selectively with React.memo, useCallback, useMemo, and virtualization.**
+> I first measured the problem using React Profiler, identified unnecessary component re-renders caused by unstable props and large DOM rendering, then optimized selectively with React.memo, useCallback, useMemo, and virtualization.
 
 ---
 
@@ -5488,16 +5488,16 @@ Encourage:
 
 ## Senior-Level Answer (2 Minutes)
 
-> **"React performance optimizations such as `React.memo`, `useMemo`, and `useCallback` should be applied selectively rather than everywhere. Each of these techniques introduces its own overhead, so using them without measurement can actually degrade performance.**
+> "React performance optimizations such as `React.memo`, `useMemo`, and `useCallback` should be applied selectively rather than everywhere. Each of these techniques introduces its own overhead, so using them without measurement can actually degrade performance.
 >
-> **For example, `React.memo` performs a shallow comparison of props on every parent render. If the component is lightweight, the comparison itself may cost more than simply rendering the component again.**
+> For example, `React.memo` performs a shallow comparison of props on every parent render. If the component is lightweight, the comparison itself may cost more than simply rendering the component again.
 >
-> **Similarly, `useMemo` and `useCallback` require React to retain previous values and compare dependency arrays on every render. If the computation being memoized is inexpensive or the callback isn't passed to memoized children, the extra bookkeeping provides little or no benefit.**
+> Similarly, `useMemo` and `useCallback` require React to retain previous values and compare dependency arrays on every render. If the computation being memoized is inexpensive or the callback isn't passed to memoized children, the extra bookkeeping provides little or no benefit.
 >
-> **In our project, we used these optimizations only where profiling showed measurable improvements. Heavy components such as `ProductCard` benefited from `React.memo`, and `useCallback` was useful for event handlers passed several levels down to memoized children. For simple UI components like buttons or labels, we intentionally avoided memoization because the render cost was negligible.**
+> In our project, we used these optimizations only where profiling showed measurable improvements. Heavy components such as `ProductCard` benefited from `React.memo`, and `useCallback` was useful for event handlers passed several levels down to memoized children. For simple UI components like buttons or labels, we intentionally avoided memoization because the render cost was negligible.
 >
-> **We continuously validated these decisions using React Profiler, and in some cases removing unnecessary memoization actually reduced render time because it eliminated comparison overhead. The key lesson is to measure first, optimize second, and only keep optimizations that provide measurable improvements."**
-
+> We continuously validated these decisions using React Profiler, and in some cases removing unnecessary memoization actually reduced render time because it eliminated comparison overhead. The key lesson is to measure first, optimize second, and only keep optimizations that provide measurable improvements."
+> 
 ---
 
 ## Why Can Memoization Hurt Performance?
@@ -5585,21 +5585,21 @@ Never optimize based on assumptions.
 
 ## Interview One-Liner
 
-> **Memoization isn't free. `React.memo`, `useMemo`, and `useCallback` introduce comparison and memory overhead, so they should only be used where profiling shows a measurable performance benefit.**
+> Memoization isn't free. `React.memo`, `useMemo`, and `useCallback` introduce comparison and memory overhead, so they should only be used where profiling shows a measurable performance benefit.
 
 # 3. Can you give a real example where using React.memo or useCallback made performance worse or was unnecessary?
 
 ## Senior-Level Answer (2 Minutes)
 
-> **"Yes. React performance optimizations are not free, and I've seen cases where using `React.memo`, `useCallback`, or `useMemo` actually reduced performance or added unnecessary complexity.**
+> "Yes. React performance optimizations are not free, and I've seen cases where using `React.memo`, `useCallback`, or `useMemo` actually reduced performance or added unnecessary complexity.
 >
-> **A simple example is wrapping very lightweight components such as buttons, icons, or small labels with `React.memo`. Since these components are cheap to render, React spends more time performing shallow prop comparisons than it would simply re-rendering the component.**
+> A simple example is wrapping very lightweight components such as buttons, icons, or small labels with `React.memo`. Since these components are cheap to render, React spends more time performing shallow prop comparisons than it would simply re-rendering the component.
 >
-> **A more realistic production example occurred on a form-heavy page where we initially wrapped nearly every event handler with `useCallback`, assuming it would improve performance. However, React Profiler showed almost no reduction in re-renders because the child components weren't memoized. Instead, we introduced additional dependency tracking, increased code complexity, and even encountered stale closure bugs when dependency arrays weren't maintained correctly.**
+> A more realistic production example occurred on a form-heavy page where we initially wrapped nearly every event handler with `useCallback`, assuming it would improve performance. However, React Profiler showed almost no reduction in re-renders because the child components weren't memoized. Instead, we introduced additional dependency tracking, increased code complexity, and even encountered stale closure bugs when dependency arrays weren't maintained correctly.
 >
-> **Another common issue involved `React.memo`. Although components were memoized, the parent still created new object literals and arrays during every render, such as inline style objects or filtered arrays. Since React performs shallow comparison, these new references caused memoization to fail, meaning we paid the comparison cost while still re-rendering every component.**
+> Another common issue involved `React.memo`. Although components were memoized, the parent still created new object literals and arrays during every render, such as inline style objects or filtered arrays. Since React performs shallow comparison, these new references caused memoization to fail, meaning we paid the comparison cost while still re-rendering every component.
 >
-> **The biggest takeaway for me was that optimization should always be guided by profiling rather than assumptions. Today, I only apply `React.memo`, `useCallback`, or `useMemo` when React Profiler demonstrates a measurable benefit—for example with expensive components, large lists, or deeply nested component trees."**
+> The biggest takeaway for me was that optimization should always be guided by profiling rather than assumptions. Today, I only apply `React.memo`, `useCallback`, or `useMemo` when React Profiler demonstrates a measurable benefit—for example with expensive components, large lists, or deeply nested component trees."
 
 ---
 
@@ -5690,7 +5690,7 @@ Only optimize when:
 
 ## Interview One-Liner
 
-> **Memoization isn't free. If components are inexpensive to render or props change reference every render, `React.memo`, `useMemo`, and `useCallback` may add overhead without improving performance. Always profile before optimizing.**
+> Memoization isn't free. If components are inexpensive to render or props change reference every render, `React.memo`, `useMemo`, and `useCallback` may add overhead without improving performance. Always profile before optimizing.
 
 ---
 
@@ -5698,13 +5698,13 @@ Only optimize when:
 
 ## Senior-Level Answer (2 Minutes)
 
-> **"A production issue we encountered involved a debounced search input. We delayed API requests until the user stopped typing to reduce unnecessary network calls. However, the debounced callback captured an older value of `searchTerm` because of JavaScript closures.**
+> "A production issue we encountered involved a debounced search input. We delayed API requests until the user stopped typing to reduce unnecessary network calls. However, the debounced callback captured an older value of `searchTerm` because of JavaScript closures.
 >
-> **For example, if the user typed 'iph' and quickly continued typing 'iphone', the delayed callback sometimes still executed using 'iph'. The outdated request could finish after the newer request and overwrite the latest search results, causing the UI to flicker or display stale data.**
+> For example, if the user typed 'iph' and quickly continued typing 'iphone', the delayed callback sometimes still executed using 'iph'. The outdated request could finish after the newer request and overwrite the latest search results, causing the UI to flicker or display stale data.
 >
-> **To resolve this, we stopped relying on captured state inside the debounced callback. Instead, we passed the latest search term directly into the debounce function or stored the latest value in a `useRef`, which always points to the current value without triggering re-renders. We also used `AbortController` to cancel previous requests so older responses couldn't overwrite newer ones.**
+> To resolve this, we stopped relying on captured state inside the debounced callback. Instead, we passed the latest search term directly into the debounce function or stored the latest value in a `useRef`, which always points to the current value without triggering re-renders. We also used `AbortController` to cancel previous requests so older responses couldn't overwrite newer ones.
 >
-> **The key lesson is that asynchronous callbacks often outlive the render that created them, so they should reference the latest value explicitly or cancel outdated work."**
+> The key lesson is that asynchronous callbacks often outlive the render that created them, so they should reference the latest value explicitly or cancel outdated work."
 
 ---
 
@@ -5811,7 +5811,7 @@ Prevents older responses from updating the UI.
 
 ## Interview One-Liner
 
-> **Stale closures occur when asynchronous callbacks capture outdated state. I fix them by passing the latest value explicitly, storing mutable values in `useRef`, or cancelling outdated async operations using `AbortController`.**
+> Stale closures occur when asynchronous callbacks capture outdated state. I fix them by passing the latest value explicitly, storing mutable values in `useRef`, or cancelling outdated async operations using `AbortController`.
 
 ---
 
@@ -5881,7 +5881,7 @@ socket.onmessage = () => {
 
 ## Which One Do I Prefer?
 
-> **I use `useCallback` when React should manage correctness through dependency tracking and when stable function references improve rendering performance. I use `useRef` when asynchronous code needs access to the latest value without recreating callbacks or causing re-renders.**
+> I use `useCallback` when React should **manage correctness through dependency tracking and when stable function references** improve rendering performance. I use `useRef` when **asynchronous code needs access to the latest value without recreating callbacks or causing re-renders**.
 
 ---
 
@@ -5914,7 +5914,7 @@ Developer controls updates
 
 ## Interview One-Liner
 
-> **`useCallback` keeps function references stable by recreating them when dependencies change, whereas `useRef` provides mutable access to the latest value without causing re-renders, making it ideal for asynchronous callbacks such as debouncing, intervals, and event listeners.**
+>`useCallback` keeps  **function references stable by recreating them when dependencies change**, whereas `useRef`  **provides mutable access to the latest value without causing re-renders**, making it ideal for asynchronous callbacks such as debouncing, intervals, and event listeners.
 
 # Microservices vs Micro Frontends
 
@@ -6061,7 +6061,7 @@ function add(a, b) {
 
 ## Interview One-Liner
 
-> **Bundling combines application modules into optimized browser bundles, while tree shaking removes unused code from those bundles to reduce JavaScript size and improve loading performance.**
+> Bundling combines **application modules into optimized** browser bundles, while tree shaking**removes unused code from those bundles** to reduce JavaScript size and improve loading performance.
 
 # Redux Toolkit (RTK)
 
@@ -6345,7 +6345,7 @@ const { data, isLoading, error } = useGetUsersQuery();
 
 # Interview One-Liner
 
-> **createAsyncThunk is best for custom asynchronous business logic, whereas RTK Query is a complete data-fetching and caching solution with built-in loading, error handling, and automatic cache management.**
+> createAsyncThunk is best for **custom asynchronous business logic**, whereas RTK Query is a **complete data-fetching and caching solution** with built-in loading, error handling, and automatic cache management.
 
 ---
 
@@ -6461,8 +6461,8 @@ t
 
 ## Interview One-Liner
 
-- **`for...in` → Iterates over object keys or array indexes.**
-- **`for...of` → Iterates over iterable values such as arrays, strings, maps, and sets.**
+- **`for...in`** → Iterates over object keys or array indexes.
+- **`for...of`** → Iterates over iterable values such as arrays, strings, maps, and sets.
 
 # `for...in` vs `for...of`
 
@@ -6685,4 +6685,4 @@ Look for:
 
 ## Interview One-Liner
 
-> **JavaScript memory leaks occur when objects remain reachable and cannot be garbage collected. In React, they usually result from effects that don't clean up resources such as timers, event listeners, API requests, WebSockets, or subscriptions. I typically diagnose them using Chrome DevTools Heap Snapshots, the Performance panel, and React Profiler to identify retained objects and increasing heap usage.**
+> JavaScript memory leaks occur when objects remain reachable and cannot be garbage collected. In React, they usually result from effects that don't clean up resources such as timers, event listeners, API requests, WebSockets, or subscriptions. I typically diagnose them using Chrome DevTools Heap Snapshots, the Performance panel, and React Profiler to identify retained objects and increasing heap usage.

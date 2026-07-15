@@ -15,6 +15,7 @@ A collection of commonly asked JavaScript DOM interview programs with complete s
 | 5 | Center Div | [Go](#5-center-div) |
 | 6 | Load More Data (Limit 100) | [Go](#6-load-more-data-with-limit-100) |
 | 7 | Product Search with Categories | [Go](#7-product-search-with-categories) |
+| 8 | Progress Bar |  [Go](#8-progress-bar) |
 
 ---
 

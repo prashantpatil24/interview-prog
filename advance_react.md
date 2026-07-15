@@ -11,7 +11,7 @@
 | Scope is usually local         | Can be shared across applications     |
 
 
-# Difference between `filter()` and `find()`
+## Difference between `filter()` and `find()`
 
 | `filter()`                            | `find()`                                           |
 | ------------------------------------- | -------------------------------------------------- |
@@ -20,10 +20,7 @@
 | Iterates through the **entire array** | Stops as soon as it finds the first match          |
 | Use when you need multiple results    | Use when you need only one result                  |
 
-
-
-
-# How to handle API or Backend Error 
+## How to handle API or Backend Error 
 
 I handle backend errors using centralized exception handling so all APIs
 return a consistent response format. I validate inputs first and return
@@ -35,7 +32,7 @@ timeouts, and circuit breakers where appropriate. I also monitor
 production errors using tools like Sentry or Datadog. This approach
 makes the application secure, maintainable, and easier to debug
 
-# If you find bug what is approch 
+## If you find bug what is approch 
 
 My approach is: reproduce the bug, identify the root cause, assess its
 impact, communicate it to the team, implement and test the fix, add
@@ -44,9 +41,7 @@ the application afterward. If the issue reveals a gap in the process, I
 also suggest preventive improvements so the same type of bug doesn't
 happen again
 
-asks:
-
-# "What would you do if, one day later, you realize your story point estimate was lower than the actual effort?"
+## "What would you do if, one day later, you realize your story point estimate was lower than the actual effort?"
 
 > "As soon as I realize my estimate is inaccurate, I don't wait until
 > the end of the sprint. I inform my Scrum Master and Tech Lead, explain
@@ -60,8 +55,7 @@ asks:
 
 ## Want to start new application
 
-\"Whenever I integrate any application or third-party service into a
-React project,
+Whenever I integrate any application or third-party service into a React project,
 
 I first understand the **business requirements** and study the **API or
 SDK documentation**.
@@ -94,22 +88,17 @@ determined at the time the function is created.
 **\|\| -\>** return right hand if left hand [**has any falsy value,**
 not only null or undefined.]{.mark}
 
+# function scope vs block scope
+```javascript
 {
-
-var a = 10;
-
-let b = 20;
-
-{
-
-console.log(a); //10 -\> var is function-scoped, not block-scoped.
-
-console.log(b); //20 -\> let is block-scoped, but the inner block is
-nested inside the block where b is declared
-
+  {
+     var a = 10;
+     let b = 20;
+     console.log(a); //10 var is function-scoped, not block-scoped.
+     console.log(b); //20 let is block-scoped, but the inner block is nested inside the block where b is declared
+  }
 }
-
-}
+```
 
 ## Babel vs Polyfill?
 
@@ -157,7 +146,7 @@ removing unused CSS.
 
 ## 1. What is a Micro Frontend?
 
-Answer:\
+Answer:
 A Micro Frontend is an architectural approach where a frontend
 application is split into smaller, independently developed, tested, and
 deployed applications.
@@ -315,7 +304,7 @@ Options:
 
 -   Error boundaries
 
-11\. How do you avoid CSS conflicts?
+11. How do you avoid CSS conflicts?
 
 Methods:
 

@@ -1,4 +1,25 @@
-##  
+##React Interview Question   
+
+# Difference between Memoization and Caching
+
+Memoization	                    Caching
+Stores function results	        Stores any type of data
+Input → Output mapping	        Key → Value mapping
+Mostly used for pure functions	Used for API, DB, images, files, etc.
+Usually in memory	            Memory, Redis, Browser, CDN, Database
+Scope is usually local	        Can be shared across applications
+
+# Difference between `filter()` and `find()`
+
+| `filter()`                            | `find()`                                           |
+| ------------------------------------- | -------------------------------------------------- |
+| Returns **all matching elements**     | Returns the **first matching element**             |
+| Returns an **array**                  | Returns a **single object/value** (or `undefined`) |
+| Iterates through the **entire array** | Stops as soon as it finds the first match          |
+| Use when you need multiple results    | Use when you need only one result                  |
+
+
+
 
 # How to handle API or Backend Error 
 

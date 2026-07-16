@@ -18,6 +18,7 @@ A collection of commonly asked JavaScript DOM interview programs with complete s
 | 8 | Progress Bar |  [Go](#8-progress-bar) |
 | 9 | Debounced Search in JavaScript |  [Go](#9-debounce) |
 | 10 | Todo Cards by User |  [Go](#10-todo-card) |
+| 11 | Dynamic Select with lazy load | [Go](#11-lazy-load) |
 
 ---
 
@@ -1673,6 +1674,102 @@ O(1)
 ⬆️ [Back to Top](#-table-of-contents)
 
 ---
+# 11. Dynamic Drop down - lazy load ## Source Code
 
+```html
 
+<!Doctype html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Drop down- lazy load</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 30px;
+            background: #f5f5f5;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .dropdown {
+            width: 300px;
+            height: 250px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Todos Grouped by User</h2>
+    <div id="dropdown" class="dropdown"></div>
+    <script>
+        const dropdown = document.getElementById('dropdown');
+
+        let todos = [];
+        let pageSize = 10;
+        let currentIndex = 0;
+
+        function renderNextBatch() {
+            const nextItems = todos.slice(currentIndex, currentIndex + pageSize);
+
+            nextItems.forEach((todo) => {
+                const option = document.createElement('option');
+                option.textContent = todo.todo;
+                option.value = todo.id;
+                dropdown.appendChild(option);
+            });
+
+            currentIndex += pageSize;
+        }
+
+        async function fetchData() {
+            try {
+                const response = await fetch('https://dummyjson.com/todos?limit=50');
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch todos');
+                }
+
+                const data = await response.json();
+
+                todos = data.todos;
+
+                // First 10
+                renderNextBatch();
+            } catch (error) {
+                console.error(error);
+            } finally {
+            }
+        }
+
+        // Load next 10 when scroll reaches bottom
+        dropdown.addEventListener('scroll', () => {
+            if (
+                dropdown.scrollTop + dropdown.clientHeight >=
+                dropdown.scrollHeight - 5
+            ) {
+                renderNextBatch();
+            }
+        });
+
+        fetchData();
+    </script>
+</body>
+
+</html>
+```
+
+⬆️ [Back to Top](#-table-of-contents)
+
+---

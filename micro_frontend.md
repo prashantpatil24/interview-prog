@@ -473,3 +473,21 @@ Guidelines:
 -   Use shared error pages and loading indicators.
 
 
+
+## Can different React versions work?
+
+Yes.
+
+The shared configuration belongs in the **Webpack Module Federation
+configuration**, typically inside webpack.config.js
+
+Using Module Federation:
+```javascript
+shared: {
+   react: {
+    **singleton: true**
+   }
+}
+```
+Usually a singleton React instance is preferred to avoid runtime issues.
+

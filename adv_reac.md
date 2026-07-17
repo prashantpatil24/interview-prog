@@ -1,175 +1,6 @@
-
-
 ## React Interview Question   
 
-# Difference between Memoization and Caching
-
-| Memoization                    | Caching                               |
-| ------------------------------ | ------------------------------------- |
-| Stores function results        | Stores any type of data               |
-| Input → Output mapping         | Key → Value mapping                   |
-| Mostly used for pure functions | Used for API, DB, images, files, etc. |
-| Usually in memory              | Memory, Redis, Browser, CDN, Database |
-| Scope is usually local         | Can be shared across applications     |
-
-
-## Difference between `filter()` and `find()`
-
-| `filter()`                            | `find()`                                           |
-| ------------------------------------- | -------------------------------------------------- |
-| Returns **all matching elements**     | Returns the **first matching element**             |
-| Returns an **array**                  | Returns a **single object/value** (or `undefined`) |
-| Iterates through the **entire array** | Stops as soon as it finds the first match          |
-| Use when you need multiple results    | Use when you need only one result                  |
-
-
-
-## Lexical Scope
-
-**Lexical Scope** means that **a function can access variables based on
-where it is defined in the code, not where it is called.** The scope is
-determined at the time the function is created.
-
-## What is nullish coalescing operator (??)?
-
-**?? -\>** return right hand if left hand **null or undefined**
-
-**\|\| -\>** return right hand if left hand [**has any falsy value,**
-not only null or undefined.]{.mark}
-
-# function scope vs block scope
-```javascript
-{
-  {
-     var a = 10;
-     let b = 20;
-     console.log(a); //10 var is function-scoped, not block-scoped.
-     console.log(b); //20 let is block-scoped, but the inner block is nested inside the block where b is declared
-  }
-}
-```
-
-## Babel vs Polyfill?
-
-  ------------------------------------------------------------------------
-  **Feature**      **Babel**                      **Polyfill**
-  ---------------- ------------------------------ ------------------------
-  Purpose          Converts modern JavaScript     Adds missing JavaScript
-                   syntax into older syntax       features/APIs
-
-  What it does     **Transpiles** code            **Implements missing
-                                                  APIs**
-
-  Handles          Arrow functions, classes,      Promise,
-                   optional chaining, async       Array.includes(), Map,
-                   syntax, JSX                    Set, fetch (not all),
-                                                  etc.
-
-  Changes syntax?  ✅ Yes                         ❌ No
-
-  Adds runtime     ❌ Not by itself               ✅ Yes
-  code?                                           
-  ------------------------------------------------------------------------
-
-## Tailwind vs Bootstrap
-
-Tailwind CSS is a utility-first CSS framework that enables rapid,
-consistent, and responsive UI development by composing small utility
-classes directly in HTML/JSX. It offers excellent customization,
-mobile-first responsive utilities, and optimized production builds by
-removing unused CSS.
-
-  -----------------------------------------------------------------------
-  **Feature**      **Tailwind**                **Bootstrap**
-  ---------------- --------------------------- --------------------------
-  Approach         Utility-first               Component-based
-
-  Customization    High                        Moderate
-
-  CSS Size         Smaller after purge         Larger
-
-  Design           Fully custom                Bootstrap look by default
-
-  Learning         Utility classes             Prebuilt components
-  -----------------------------------------------------------------------
-
-
-## What is Tailwind CSS?
-
-Tailwind CSS is a **utility-first CSS framework** that provides
-pre-built utility classes to build custom UI directly in HTML/JSX
-without writing much custom CSS.
-
-Example:
-
-\<button class=\"bg-blue-500 text-white px-4 py-2 rounded
-hover:bg-blue-600\"\>
-
-Submit
-
-\</button\>
-
-Advantages
-
--   Utility-first approach
-
--   Faster UI development
-
--   Highly customizable
-
--   Small production bundle (purges unused CSS)
-
--   Responsive utilities built in
-
--   Dark mode support
-
--   Consistent design system
-
--   Easy to integrate with React, Next.js, Vue, Angular
-
-Disadvantages
-
--   HTML/JSX can become cluttered with many classes
-
--   Learning utility class names takes time
-
--   May require \@apply or custom CSS for complex reusable styles
-
-# **Install Tailwind CSS**
-
-> npm install tailwindcss \@tailwindcss/vite
->
-> Then configure tailwind.config.js:
->
-> \"For a React + Vite project using Tailwind CSS v4, I install
-> tailwindcss and \@tailwindcss/vite, add the Tailwind Vite plugin in
-> vite.config.js, import tailwindcss in my main CSS file, import that
-> CSS into main.jsx, and then run the application.
->
-> For older Tailwind v3 projects, I initialize the configuration with
-> tailwind.config.js and use the \@tailwind base, \@tailwind components,
-> and \@tailwind utilities directives.\"
-
-## 12. Can different React versions work?
-
-Yes.
-
-The shared configuration belongs in the **Webpack Module Federation
-configuration**, typically inside webpack.config.js
-
-Using Module Federation:
-```javascript
-shared: {
-   react: {
-    **singleton: true**
-   }
-}
-```
-Usually a singleton React instance is preferred to avoid runtime issues.
-
-# Webpack Interview Questions
-
-## 13. What is Webpack?
+## What is Webpack?
 
 Webpack is a module bundler.
 
@@ -187,7 +18,7 @@ It bundles:
 
 -   JSON
 
-## 14. Why do we need Webpack?
+## Why do we need Webpack?
 
 -   Bundling
 
@@ -201,7 +32,7 @@ It bundles:
 
 -   Asset optimization
 
-## 15. Explain entry.
+## Explain entry.
 
 Starting point of the application.
 
@@ -209,7 +40,7 @@ Starting point of the application.
     entry: \"./src/index.js\"
 ```
 
-## 16. Explain output.
+## Explain output.
 
 Where bundles are generated.
 ```javascript
@@ -218,7 +49,7 @@ output: {
 }
 ```
 
-## 17. What are Loaders?
+##  What are Loaders?
 
 Loaders **transform non-JavaScript files**.
 
@@ -234,7 +65,7 @@ Examples:
 
 -   ts-loader
 
-## 18. What are Plugins?
+## What are Plugins?
 
 Plugins perform build tasks.
 
@@ -248,7 +79,7 @@ Examples:
 
 -   CleanWebpackPlugin
 
-## 19. Difference between Loader and Plugin?
+## Difference between Loader and Plugin?
 
 | **Loader**                                       | **Plugin**                              |
 | ------------------------------------------------ | --------------------------------------- |
@@ -260,7 +91,7 @@ Examples:
 | Examples: `babel-loader`, `css-loader`, `style-l |                                         |
 
 
-## 20. What is Tree Shaking?
+## What is Tree Shaking?
 
 Removes unused code.
 
@@ -275,7 +106,7 @@ import { add } from \"./math\";
 Only add is included in the production bundle if tree shaking is
 enabled.
 
-## 21. What is Code Splitting?
+##  What is Code Splitting?
 
 Splits bundles into smaller chunks.
 
@@ -287,7 +118,7 @@ Benefits:
 -   Smaller initial bundle
 -   Better performance
 
-## 22. What is Lazy Loading?
+## What is Lazy Loading?
 
 Loads components only when needed.
 
@@ -295,7 +126,7 @@ Loads components only when needed.
     const Dashboard = React.lazy(() =\> import(\"./Dashboard\"));
 ```
 
-## 23. What is Hot Module Replacement (HMR)?
+## What is Hot Module Replacement (HMR)?
 
 Updates changed modules without refreshing the whole page.
 
@@ -303,7 +134,7 @@ Benefits:
 -   Preserves component state
 -   Faster development
 
-## 24. What is Babel?
+## What is Babel?
 
 Babel converts modern JavaScript into code that older browsers can
 understand.
@@ -314,13 +145,13 @@ Example:
 ```
 is transformed into ES5-compatible JavaScript.
 
-## 25. What is Source Map?
+## What is Source Map?
 
-Maps bundled code back to the original source.
+Maps bundled(production) code back to the original source.
 
 - Useful for debugging.
 
-## 26. Explain Webpack build modes.
+## Explain Webpack build modes.
 
 - development
 - production
@@ -331,7 +162,7 @@ Production mode enables:
 -   Tree shaking
 -   Optimizations
 
-## 27. What is webpack-dev-server?
+## What is webpack-dev-server?
 
 A development server that provides:
 
@@ -339,31 +170,7 @@ A development server that provides:
 -   Hot Module Replacement
 -   Faster local development
 
-## 28. Explain Module Federation configuration.
 
-Remote (webpack.config.js):
-```javascript
-    new ModuleFederationPlugin({
-        name: \"header\",
-        filename: \"remoteEntry.js\",
-        exposes: {
-            \"./Header\": \"./src/Header\" 
-        },
-        shared: {
-            react: { singleton: true },
-        \"react-dom\": { singleton: true }
-        }
-    });
-```
-Host (webpack.config.js):
-
-```javascript
-    new ModuleFederationPlugin({
-    remotes: {
-        header: \"header@http://localhost:3001/remoteEntry.js\"
-    }
-});
-```
 
 # HTTP CODE
 
@@ -385,608 +192,6 @@ Host (webpack.config.js):
 | **502**  | Bad Gateway                | A proxy/gateway received an invalid response from an upstream server.             |
 | **503**  | Service Unavailable        | Server is temporarily unavailable (maintenance or overload).                      |
 | **504**  | Gateway Timeout            | A gateway/proxy timed out waiting for an upstream server.                         |
-
-##
-
-# What is the difference between isNaN and Number.isNaN?
-
-**isNaN**: The global function isNaN converts the argument to a Number and
-returns true if the resulting value is NaN.
-
-**Number.isNaN**: This method does not convert the argument. But it returns
-true when the type is a Number and value is NaN
-  
-##
-
-# defineProperties 
-
-**Object.defineProperties()** : lets you define multiple properties at once
-and control their descriptors such as:
-
--   value
--   writable
--   enumerable
--   configurable
--   get
--   Set
-
-```javascript
-const ob = {}
-Object.defineProperties(obj, {
-    property1: {
-        value: 42,
-        writable: true,
-        enumerable: true,
-        configurable: true
-    },
-    property2: {
-        get() {
-            return this._value;
-        },
-        set(v) {
-         this._value = v;
-        },
-        enumerable: true,
-        configurable: true
-    }
-});
-```
--   value: The property\'s value.
--   writable: If true, the value can be **changed**.
--   enumerable: If true, the property appears in **loops** such as
-    > for\...in and in Object.keys().
--   configurable: If true, the property can be **deleted** or its
-    > descriptor changed.
--   get: Function called when the property is read.
--   set: Function called when the property is assigned.
-
-# Difference Between defineProperty() and defineProperties()
-
-```javascript
-    //Single Property
-    Object.defineProperty(obj, "id", {
-        value: 1
-    });
-
-    //Multiple Properties
-    Object.defineProperties(obj, {
-        id: {
-            value: 1
-        },
-        name: {
-            value: "Prashant"
-        }
-    });
-```
-| **Method**               | **Copies Own Properties?** | **Prototype Preserved?** | **Copy Type**         | **Use Case**                                       |
-| ------------------------ | -------------------------- | ------------------------ | --------------------- | -------------------------------------------------- |
-| `Object.create(obj)`     | ❌ No                       | ✅ Yes                    | Prototype inheritance | Create an object that inherits from another object |
-| `Object.assign({}, obj)` | ✅ Yes                      | ❌ No                     | Shallow copy          | Clone or merge objects                             |
-| `{ ...obj }`             | ✅ Yes                      | ❌ No                     | Shallow copy          | Modern syntax for cloning objects                  |
-
-
-# Difference between Rest Parameter and arguments
-
-```javascript
-    //arguments:
-    function test() {
-        console.log(arguments);
-    }
-```
-    - Available in regular functions
-    - Array-like object
-    - Not a real array
-
-//rest
-
-```javascript
-    function test(...args) {
-        console.log(args);
-    }
-    rest (...args):
-```
-    - Real array
-    - Supports array methods (map, filter, reduce)
-    - Preferred in modern JavaScript
-
-# Compiler vs Interpreter
-
-A **compiler** translates the entire source code into machine code before execution, producing an executable program.
-
-An **interpreter** translates and executes code line by line at runtime.
-
-## Key Differences
-
-| Compiler | Interpreter |
-|----------|-------------|
-| Translates the entire program before execution | Translates and executes code line by line |
-| Generates an executable file | Does not generate a separate executable |
-| Faster execution after compilation | Slower execution due to runtime translation |
-| Compilation errors shown after compiling the whole program | Errors are reported line by line during execution |
-| Better runtime performance | Easier debugging and faster development |
-
-## Advantages of a Compiler
-
-- Faster execution
-- Better optimization
-- Generates standalone executable
-- Suitable for production applications
-
-## Advantages of an Interpreter
-
-- Faster development cycle
-- Easier debugging
-- Platform independent (requires interpreter)
-- Executes code immediately
-
-## Examples
-
-### Compiled Languages
-- C
-- C++
-- Rust
-- Go
-
-### Interpreted Languages
-- Python
-- Ruby
-- PHP
-- Bash
-
-## JavaScript
-
-Modern JavaScript engines (such as **Google V8**) use **Just-In-Time (JIT) Compilation**, combining the advantages of both compilation and interpretation.
-
-- Parses JavaScript code.
-- Compiles frequently executed code into machine code.
-- Optimizes hot code during runtime.
-- Provides near-native execution speed.
-
-> **Interview Point:** JavaScript is **neither purely compiled nor purely interpreted**. Modern engines use **JIT Compilation**, which combines characteristics of both approaches.
-
-# Promise Methods
-
-```javascript
-const promise1 = Promise.resolve("promise1");
-const promise2 = Promise.reject("promise2");
-const promise3 = Promise.resolve("promise3");
-```
-
----
-
-# 1. Promise.all()
-
-```javascript
-Promise.all([promise1, promise2, promise3])
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
-```
-
-## Rule
-
-- Waits for **all promises to fulfill**.
-- If **any promise rejects**, it immediately rejects.
-- Returns the fulfilled values in the same order as the input array.
-
-### Output
-
-```javascript
-promise2
-```
-
----
-
-# 2. Promise.allSettled()
-
-```javascript
-Promise.allSettled([promise1, promise2, promise3])
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
-```
-
-## Rule
-
-- Waits for **all promises to settle**.
-- Doesn't matter whether they **fulfill** or **reject**.
-- Always resolves with an array describing the result of every promise.
-
-### Output
-
-```javascript
-[
-  { status: "fulfilled", value: "promise1" },
-  { status: "rejected", reason: "promise2" },
-  { status: "fulfilled", value: "promise3" }
-]
-```
-
-## Why `.then()` and not `.catch()`?
-
-Because **`Promise.allSettled()` never rejects**.
-
-Even if every promise fails:
-
-```javascript
-Promise.allSettled([
-  Promise.reject("A"),
-  Promise.reject("B")
-])
-.then(console.log);
-```
-
-Output:
-
-```javascript
-[
-  { status: "rejected", reason: "A" },
-  { status: "rejected", reason: "B" }
-]
-```
-
----
-
-# 3. Promise.race()
-
-```javascript
-Promise.race([promise1, promise2, promise3])
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
-```
-
-## Rule
-
-- Returns the **first settled promise**.
-- **Settled** means either:
-  - Fulfilled ✅
-  - Rejected ❌
-
-### Output (depends on which settles first)
-
-```javascript
-promise1
-```
-
-or
-
-```javascript
-promise2
-```
-
-> Whichever promise settles first wins.
-
----
-
-# 4. Promise.any()
-
-```javascript
-Promise.any([promise1, promise2, promise3])
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
-```
-
-## Rule
-
-- Returns the **first fulfilled promise**.
-- Ignores rejected promises.
-- Rejects only if **all promises reject**.
-
-### Output
-
-```javascript
-promise1
-```
-
-### If all promises reject
-
-```javascript
-Promise.any([
-  Promise.reject("A"),
-  Promise.reject("B")
-])
-.catch(error => console.log(error));
-```
-
-Output:
-
-```javascript
-AggregateError: All promises were rejected
-```
-
----
-
-# Comparison Table
-
-| Method | Success Condition | Failure Condition | Output |
-|---------|-------------------|-------------------|--------|
-| `Promise.all()` | All promises fulfill | Any promise rejects | Rejects with first error |
-| `Promise.allSettled()` | Always resolves | Never rejects | Array of status objects |
-| `Promise.race()` | First promise fulfills | First promise rejects | First settled result |
-| `Promise.any()` | First promise fulfills | All promises reject | First fulfilled value or `AggregateError` |
-
----
-
-# Interview One-Liners
-
-- **`Promise.all()`** → **"All must succeed."**
-- **`Promise.allSettled()`** → **"Give me everyone's result."**
-- **`Promise.race()`** → **"Whoever finishes first wins (success or failure)."**
-- **`Promise.any()`** → **"Give me the first success; ignore failures unless everyone fails."**
-
----
-
-# Memory Trick
-
-| Method | Think Like |
-|---------|------------|
-| `all()` | Team project — everyone must finish |
-| `allSettled()` | Exam report card — show everyone's result |
-| `race()` | Sprint race — first to finish wins |
-| `any()` | First successful candidate gets selected |
-
-# What is JavaScript?
-
-JavaScript is a **high-level**, **dynamic**, and **interpreted (JIT-compiled)** programming language used to make web pages interactive and build modern web applications.
-
-It primarily runs in the **browser**, and it can also run on the **server** using environments like **Node.js**.
-
-## What JavaScript Does
-
-### Without JavaScript
-
-- Static web pages (HTML + CSS only)
-- No interactivity
-- No dynamic updates
-
-### With JavaScript
-
-- Handle button clicks and user interactions
-- Validate forms
-- Manipulate the DOM
-- Fetch data without refreshing the page (AJAX/Fetch API)
-- Create animations
-- Build Single Page Applications (React, Angular, Vue)
-- Build backend applications using Node.js
-
----
-
-# async vs defer in JavaScript
-
-By default, when the browser encounters a script:
-
-```html
-<script src="app.js"></script>
-```
-
-The browser:
-
-1. Stops HTML parsing.
-2. Downloads the JavaScript file.
-3. Executes the script.
-4. Continues parsing the remaining HTML.
-
-This blocks page rendering and can slow down page loading.
-
----
-
-## 1. async
-
-```html
-<script src="app.js" async></script>
-```
-
-### How it works
-
-- Downloads the script in parallel with HTML parsing.
-- Executes immediately after the download completes.
-- HTML parsing pauses while the script executes.
-- Execution order is **not guaranteed**.
-
-### Best Use Cases
-
-- Analytics scripts
-- Advertisements
-- Third-party widgets
-- Independent scripts
-
----
-
-## 2. defer
-
-```html
-<script src="app.js" defer></script>
-```
-
-### How it works
-
-- Downloads the script in parallel with HTML parsing.
-- Waits until HTML parsing is complete.
-- Executes before the `DOMContentLoaded` event.
-- Maintains execution order when multiple deferred scripts are present.
-
-### Best Use Cases
-
-- Application scripts
-- React, Angular, Vue applications
-- Scripts that depend on the DOM
-- Multiple JavaScript files with dependencies
-
----
-
-# Comparison Table
-
-| Feature | `async` | `defer` |
-|---------|---------|---------|
-| Download | Parallel with HTML parsing | Parallel with HTML parsing |
-| Execution Time | Immediately after download | After HTML parsing completes |
-| Blocks HTML Parsing During Execution | ✅ Yes (briefly) | ❌ No |
-| Execution Order Maintained | ❌ No | ✅ Yes |
-| Waits for DOM to Finish | ❌ No | ✅ Yes |
-| Best Use Case | Analytics, Ads, Independent Scripts | Main Application Scripts |
-
----
-
-# Multiple Scripts Example
-
-### async
-
-```html
-<script src="a.js" async></script>
-<script src="b.js" async></script>
-```
-
-Execution order depends on which script downloads first.
-
-Possible output:
-
-```
-b.js
-a.js
-```
-
----
-
-### defer
-
-```html
-<script src="a.js" defer></script>
-<script src="b.js" defer></script>
-```
-
-Execution order always follows the HTML order:
-
-```
-a.js
-b.js
-```
-
----
-
-# Interview One-Liner
-
-- **Default** → Stops HTML parsing, downloads, executes, then continues.
-- **`async`** → Download in parallel, execute as soon as ready, order **not guaranteed**.
-- **`defer`** → Download in parallel, execute after HTML parsing, order **guaranteed**.
-
-> **Rule of Thumb:** Use **`defer`** for your application's JavaScript and **`async`** for independent third-party scripts like analytics or ads.
-
-
-# How can you avoid memory consumption issues caused by `var`?
-
-`var` is **function-scoped**, so variables remain alive for the entire function execution. This can cause unnecessary memory retention, especially when large objects are kept referenced longer than needed.
-
-Modern JavaScript prefers **`let`** and **`const`** because they are **block-scoped**, limiting the lifetime of variables.
-
-## Best Practices
-
-- Prefer `let` and `const` over `var`.
-- Keep variable scope as small as possible.
-- Remove references to large objects when they are no longer needed.
-- Avoid accidental global variables.
-- Clear timers (`setTimeout`, `setInterval`) when finished.
-- Remove unused event listeners.
-- Avoid unnecessary closures that retain large objects.
-- Let the **Garbage Collector (GC)** reclaim unused memory.
-
-### Interview One-Liner
-
-> **Use `let` and `const` instead of `var`, minimize variable scope, remove unnecessary references, and clean up timers, event listeners, and closures so the garbage collector can reclaim memory.**
-
----
-
-# `prototype` vs `__proto__`
-
-## `prototype`
-
-- A property of **functions and classes**.
-- Acts as a **template** for objects created using the `new` keyword.
-- Used to define shared methods and properties.
-
-## `__proto__`
-
-- A property of **objects**.
-- Points to the object's prototype.
-- Used by JavaScript to perform inheritance and method lookup.
-
-## Example
-
-```javascript
-function User() {}
-
-const user = new User();
-
-console.log(user.__proto__ === User.prototype); // true
-
-console.log(User.prototype.constructor === User); // true
-
-console.log(User.prototype.__proto__ === Object.prototype); // true
-```
-
-## Prototype Chain
-
-```
-user
-  │
-  ▼
-user.__proto__
-  │
-  ▼
-User.prototype
-  │
-  ▼
-Object.prototype
-  │
-  ▼
-null
-```
-
-## Key Differences
-
-| `prototype` | `__proto__` |
-|-------------|-------------|
-| Property of functions/classes | Property of objects |
-| Used when creating objects with `new` | Reference to the object's prototype |
-| Defines shared methods | Used for inheritance lookup |
-| Exists on constructor functions | Exists on every object |
-
-### Interview One-Liner
-
-> **`prototype` belongs to constructor functions and defines shared members, whereas `__proto__` belongs to objects and points to the prototype they inherit from.**
-
-> **Note:** `__proto__` is widely supported but considered legacy. Prefer `Object.getPrototypeOf()` and `Object.setPrototypeOf()` in modern JavaScript.
-
----
-
-# Pure Function vs Pure Component
-
-## Pure Function
-
-A **pure function**:
-
-1. Always returns the **same output** for the **same input**.
-2. Has **no side effects** (doesn't modify external state, DOM, variables, make API calls, etc.).
-
-### Example
-
-```javascript
-function add(a, b) {
-  return a + b;
-}
-
-add(2, 3); // 5
-add(2, 3); // 5
-```
-
-### Characteristics
-
-- Predictable
-- Easy to test
-- Easy to debug
-- Supports memoization
-- No hidden dependencies
-
-### Interview One-Liner
-
-> **A pure function always returns the same output for the same input and produces no side effects, making it predictable and easy to optimize.**
 
 ---
 
@@ -1038,237 +243,6 @@ const User = React.memo(({ name }) => {
 ### Interview One-Liner
 
 > **A Pure Component re-renders only when its props or state change based on a shallow comparison, helping avoid unnecessary renders and improving performance.**
-
-##  
-
-# Class in JavaScript
-
-Before ES6, JavaScript used **constructor functions** and **prototypes** to create objects. ES6 introduced the `class` syntax, which provides a cleaner and more readable way to achieve the same behavior.
-
-> **Note:** A JavaScript class is **syntactic sugar** over constructor functions and prototypes.
-
----
-
-## Constructor Function (Before ES6)
-
-```javascript
-function Bike(model, color) {
-  this.model = model;
-  this.color = color;
-}
-
-Bike.prototype.getDetails = function () {
-  return `${this.model} bike has ${this.color} color`;
-};
-
-const bike = new Bike("Honda", "Red");
-
-console.log(bike.getDetails());
-```
-
----
-
-## ES6 Class
-
-```javascript
-class Bike {
-  constructor(model, color) {
-    this.model = model;
-    this.color = color;
-  }
-
-  getDetails() {
-    return `${this.model} bike has ${this.color} color`;
-  }
-}
-
-const bike = new Bike("Honda", "Red");
-
-console.log(bike.getDetails());
-```
-
----
-
-# Constructor Function vs ES6 Class
-
-| Constructor Function | ES6 Class |
-|----------------------|-----------|
-| Uses function keyword | Uses `class` keyword |
-| Methods added using `prototype` | Methods defined inside class body |
-| Can be called without `new` (not recommended) | Must be called with `new` |
-| Less readable | Cleaner and easier to read |
-| Prototype-based | Still prototype-based (syntactic sugar) |
-
----
-
-# Object Literal (`{}`) vs Class Object
-
-## 1. Object Literal
-
-An object literal creates a **single object directly**.
-
-```javascript
-const user = {
-  name: "John",
-  age: 25,
-
-  greet() {
-    console.log("Hello");
-  }
-};
-
-console.log(user.name);
-```
-
-### Characteristics
-
-- Quick and simple
-- Best for one-off objects
-- No blueprint for creating multiple objects
-- Each object owns its own methods
-
----
-
-## Make Only One Property Read-Only
-
-```javascript
-const user = {
-  name: "John",
-  age: 25
-};
-
-Object.defineProperty(user, "name", {
-  writable: false
-});
-
-user.name = "Alice";
-
-console.log(user.name); // John
-```
-
-### Result
-
-- `name` becomes read-only.
-- Other properties remain editable.
-
----
-
-## 2. Class Object
-
-A class is a **blueprint** for creating multiple similar objects.
-
-```javascript
-class User {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  greet() {
-    console.log("Hello");
-  }
-}
-
-const user1 = new User("John", 25);
-const user2 = new User("Alice", 30);
-```
-
-### Characteristics
-
-- Reusable
-- Supports inheritance
-- Methods stored on prototype
-- Better memory usage
-- Easier to maintain
-
----
-
-# Memory Difference
-
-## Object Literal
-
-```javascript
-const user1 = {
-  greet() {
-    console.log("Hello");
-  }
-};
-
-const user2 = {
-  greet() {
-    console.log("Hello");
-  }
-};
-```
-
-Memory:
-
-```
-user1
- └── greet()  ← Separate function
-
-user2
- └── greet()  ← Another separate function
-```
-
-Each object stores its own copy of `greet()`.
-
----
-
-## Class
-
-```javascript
-class User {
-  greet() {
-    console.log("Hello");
-  }
-}
-
-const user1 = new User();
-const user2 = new User();
-```
-
-Memory:
-
-```
-        User.prototype
-            │
-         greet()
-         /      \
-    user1      user2
-```
-
-Only **one copy** of `greet()` exists in memory.
-
----
-
-# Prototype Check
-
-### Object Literal
-
-```javascript
-const user = {};
-
-console.log(user.__proto__ === Object.prototype);
-// true
-```
-
-### Class Instance
-
-```javascript
-class User {}
-
-const user = new User();
-
-console.log(user.__proto__ === User.prototype);
-// true
-```
-
----
-
-# {} vs class
-
-> Object literals are ideal for **creating single objects**, while classes provide **reusable blueprints** where methods are shared via the prototype, making them more memory-efficient for creating multiple instances.
 
 ---
 
@@ -1497,334 +471,7 @@ useLayoutEffect(() => {
 
 ---
 
-# 1. Explain the JavaScript Event Loop
-
-JavaScript is **single-threaded**, meaning it executes one task at a time using the **Call Stack**.
-
-Asynchronous operations are handled by browser APIs or Node.js APIs, and their callbacks are queued for later execution.
-
-Execution order:
-
-1. Call Stack
-2. Microtask Queue
-3. Macrotask Queue
-
----
-
-## Queues
-
-### Call Stack
-
-Executes synchronous code.
-
-### Microtask Queue
-
-Examples:
-
-- Promise callbacks
-- `queueMicrotask()`
-- `MutationObserver`
-
-### Macrotask Queue
-
-Examples:
-
-- `setTimeout`
-- `setInterval`
-- I/O
-- DOM Events
-
----
-
-## Example
-
-```javascript
-console.log("A");
-
-setTimeout(() => console.log("B"), 0);
-
-Promise.resolve().then(() => console.log("C"));
-
-console.log("D");
-```
-
-### Output
-
-```text
-A
-D
-C
-B
-```
-
-> Promise callbacks are microtasks, so they execute before macrotasks.
-
----
-
-## Real-World Importance
-
-Understanding the event loop helps debug:
-
-- Race conditions
-- Async bugs
-- React rendering timing
-- Performance issues
-
----
-
-# `var` in Event Loop
-
-## Problem
-
-```javascript
-for (var i = 0; i < 5; i++) {
-  setTimeout(() => console.log(i), 1000);
-}
-```
-
-Output:
-
-```text
-5
-5
-5
-5
-5
-```
-
-Reason:
-
-`var` is function-scoped, so every callback shares the same `i`.
-
----
-
-## Fix 1 — `let`
-
-```javascript
-for (let i = 0; i < 5; i++) {
-  setTimeout(() => console.log(i), 1000);
-}
-```
-
-Output:
-
-```text
-0
-1
-2
-3
-4
-```
-
----
-
-## Fix 2 — IIFE
-
-```javascript
-for (var i = 0; i < 5; i++) {
-  (function (x) {
-    setTimeout(() => console.log(x), 1000);
-  })(i);
-}
-```
-
----
-
-## Fix 3 — Pass Argument to `setTimeout`
-
-```javascript
-for (var i = 0; i < 5; i++) {
-  setTimeout((x) => console.log(x), 1000, i);
-}
-```
-
----
-
-# 2. What is a Closure?
-
-A closure is created when an inner function **retains access to variables from its outer lexical scope**, even after the outer function has finished execution.
-
-```javascript
-function counter() {
-  let count = 0;
-
-  return function () {
-    return ++count;
-  };
-}
-
-const increment = counter();
-
-console.log(increment()); // 1
-console.log(increment()); // 2
-```
-
-The inner function remembers `count`.
-
----
-
-## Real-World Use Cases
-
-- React Hooks
-- Data privacy
-- Memoization
-- Event handlers
-- Factory functions
-
----
-
-# 3. Deep Copy vs Shallow Copy
-
-## Shallow Copy
-
-Copies only the first level.
-
-```javascript
-const user = {
-  name: "John",
-  address: {
-    city: "Pune",
-  },
-};
-
-const copy = { ...user };
-
-copy.address.city = "Mumbai";
-
-console.log(user.address.city); // Mumbai
-```
-
-Both objects share the same nested object.
-
----
-
-## Deep Copy
-
-Creates completely independent objects.
-
-```javascript
-const deepCopy = structuredClone(user);
-```
-
-Changing nested properties doesn't affect the original object.
-
----
-
-# 4. Explain `this`
-
-The value of `this` depends on **how a function is called**, not where it's defined.
-
-```javascript
-const obj = {
-  name: "John",
-
-  greet() {
-    console.log(this.name);
-  },
-};
-
-obj.greet();
-```
-
-Output:
-
-```text
-John
-```
-
----
-
-```javascript
-const fn = obj.greet;
-
-fn();
-```
-
-Output:
-
-```text
-undefined
-```
-
-The function loses its object context.
-
----
-
-## Ways to Control `this`
-
-```javascript
-fn.call(obj);
-
-fn.apply(obj);
-
-const bound = fn.bind(obj);
-
-bound();
-```
-
----
-
-# 5. Implement Debounce
-
-```javascript
-function debounce(fn, delay) {
-  let timer;
-
-  return (...args) => {
-    clearTimeout(timer);
-
-    timer = setTimeout(() => {
-      fn(...args);
-    }, delay);
-  };
-}
-```
-
----
-
-## Use Cases
-
-- Search autocomplete
-- API optimization
-- Resize events
-- Input validation
-
----
-
-# 6. Debounce vs Throttle
-
-## Debounce
-
-Executes **after** the user stops triggering an event.
-
-Example:
-
-- Search box
-
----
-
-## Throttle
-
-Executes at a fixed interval while the event continues.
-
-Example:
-
-- Scroll tracking
-- Mouse movement
-- Window resize
-
----
-
-## Comparison
-
-| Debounce | Throttle |
-|----------|----------|
-| Waits until events stop | Executes at regular intervals |
-| Search input | Scroll, resize, drag |
-
----
-
-# 7. Explain React Reconciliation
+# Explain React Reconciliation
 
 React uses a **Virtual DOM**.
 
@@ -1843,7 +490,7 @@ Keys help React identify stable elements.
 
 ---
 
-# 8. What is React Fiber?
+# What is React Fiber?
 
 React Fiber is the rendering engine introduced in **React 16**.
 
@@ -1868,7 +515,7 @@ React Fiber is the rendering engine introduced in **React 16**.
 
 ---
 
-# 9. `React.memo` vs `useMemo` vs `useCallback`
+# `React.memo` vs `useMemo` vs `useCallback`
 
 ## `React.memo`
 
@@ -1914,7 +561,7 @@ const handleClick = useCallback(() => {
 
 ---
 
-# 10. What Causes React Re-renders?
+#  What Causes React Re-renders?
 
 A component re-renders when:
 
@@ -1933,7 +580,7 @@ A component re-renders when:
 
 ---
 
-# 11. `useEffect` Lifecycle
+#  `useEffect` Lifecycle
 
 ```jsx
 useEffect(() => {
@@ -1969,7 +616,7 @@ cleanup
 ---
 
 
-# 13. Explain React Query (TanStack Query)
+#  Explain React Query (TanStack Query)
 
 ## What is React Query?
 
@@ -2008,30 +655,7 @@ const { data } = useQuery({
 
 ---
 
-
-
-# 15. Explain Memory Leaks in JavaScript
-
-Common causes:
-
-- Unremoved event listeners
-- Uncleared timers
-- Closures retaining large objects
-- Detached DOM nodes
-- WebSocket connections
-- Uncleaned React effects
-
-## Prevention
-
-- Cleanup inside `useEffect`
-- Remove listeners
-- Clear timers
-- Close WebSockets
-- Avoid retaining unnecessary references
-
----
-
-# 16. Explain React Suspense
+# Explain React Suspense
 
 React Suspense allows React to **pause rendering** until asynchronous work finishes.
 
@@ -2051,7 +675,7 @@ Used with:
 
 ---
 
-# 17. What Causes Unnecessary Re-renders?
+# What Causes Unnecessary Re-renders?
 
 ```jsx
 <Child onClick={() => doSomething()} />
@@ -2082,7 +706,7 @@ const handleClick = useCallback(() => {
 
 ---
 
-# 18. How Would You Improve Performance of a Slow React Application?
+# How Would You Improve Performance of a Slow React Application?
 
 ## Investigation Order
 
@@ -2096,7 +720,7 @@ Optimize only after identifying the actual bottleneck.
 
 ---
 
-# 19. Frontend Security Best Practices
+# Frontend Security Best Practices
 
 ## Protect Against XSS
 
@@ -2204,7 +828,7 @@ Benefits:
 
 # Fiber Rendering Phases
 
-## 1. Render Phase (Interruptible)
+## Render Phase (Interruptible)
 
 Performs:
 
@@ -2215,7 +839,7 @@ Can be paused.
 
 ---
 
-## 2. Commit Phase (Synchronous)
+## Commit Phase (Synchronous)
 
 Applies changes:
 
@@ -2253,62 +877,6 @@ It:
 
 ---
 
-# JavaScript Memory Management
-
-JavaScript automatically manages memory using **Garbage Collection (GC)**.
-
-Lifecycle:
-
-1. Allocate memory
-2. Use memory
-3. Release unused memory
-
----
-
-## Memory Types
-
-### Stack Memory
-
-Stores:
-
-- Primitive values
-- Function calls
-- Execution contexts
-- References
-
-Fast and automatically managed.
-
----
-
-### Heap Memory
-
-Stores:
-
-- Objects
-- Arrays
-- Functions
-- Closures
-
----
-
-# Mark-and-Sweep Garbage Collection
-
-## Mark
-
-Starting from root references:
-
-- Global variables
-- Stack references
-
-GC marks every reachable object.
-
----
-
-## Sweep
-
-Objects that weren't marked are removed from memory.
-
----
 
 # Common React Memory Leaks
 
@@ -2999,7 +1567,7 @@ Benefits:
 
 ---
 
-# 1. CSR vs SSR vs SSG
+# CSR vs SSR vs SSG
 
 ## What is Client-Side Rendering (CSR)?
 
@@ -3142,7 +1710,7 @@ Browser loads static page
 
 ---
 
-# 2. Hydration and Hydration Bottlenecks
+# Hydration and Hydration Bottlenecks
 
 ## What is Hydration?
 
@@ -3353,7 +1921,7 @@ Download resources likely needed later.
 ---
 # Interview One-Liner
 
-> **Bundle optimization reduces JavaScript download size, parsing time, and execution cost using techniques such as code splitting, tree shaking, compression, caching, and lazy loading, resulting in faster page loads and better Core Web Vitals.**
+Bundle optimization reduces JavaScript download size, parsing time, and execution cost using techniques such as code splitting, tree shaking, compression, caching, and lazy loading, resulting in faster page loads and better Core Web Vitals.
 
 ---
 
@@ -3371,7 +1939,7 @@ Large JavaScript bundles increase:
 
 ---
 
-# 5. Core Web Vitals Optimization
+# Core Web Vitals Optimization
 
 ## What are Core Web Vitals?
 
@@ -3419,11 +1987,11 @@ Core Web Vitals are Google's metrics for measuring real-world user experience.
 
 ## Interview One-Liner
 
-> **Core Web Vitals measure loading (LCP), responsiveness (INP), and visual stability (CLS). Improving them leads to faster, smoother, and more stable user experiences.**
+> Core Web Vitals measure loading (LCP), responsiveness (INP), and visual stability (CLS). Improving them leads to faster, smoother, and more stable user experiences.
 
 ---
 
-# 6. HTTP Caching Strategies
+# HTTP Caching Strategies
 
 ## What is HTTP Caching?
 
@@ -3472,13 +2040,7 @@ Benefits:
 
 ---
 
-## Interview One-Liner
-
-> **HTTP caching improves performance by serving previously stored responses from the browser or CDN, reducing latency, bandwidth usage, and server load.**
-
----
-
-# 7. Windowing (Virtualization)
+# Windowing (Virtualization)
 
 ## What is Virtualization?
 
@@ -3537,7 +2099,7 @@ Recycle DOM Nodes While Scrolling
 | **Repaint** | Updates pixels without changing layout | Lower |
 | **Reflow (Layout)** | Recalculates element size and position | Higher |
 
-**Reflow is significantly more expensive than repaint.**
+**Reflow** is significantly **more expensive** than **repaint.**
 
 ---
 
@@ -3609,13 +2171,8 @@ Repeated read → write → read → write forces synchronous layout recalculati
 
 ---
 
-## Interview One-Liner
 
-> **Virtualization improves rendering performance by mounting only visible list items, reducing DOM size, memory usage, and rendering cost.**
-
----
-
-# 8. CDN and Edge Rendering
+# CDN and Edge Rendering
 
 ## What is a CDN?
 
@@ -3693,13 +2250,7 @@ Improves:
 
 ---
 
-## Interview One-Liner
-
-> **A CDN delivers static assets closer to users, while Edge Rendering executes server-side logic at edge locations to reduce latency for dynamic content.**
-
----
-
-# 9. State Architecture Patterns
+# State Architecture Patterns
 
 ## What is Good State Architecture?
 
@@ -3749,12 +2300,7 @@ Goals:
 
 ---
 
-## Interview One-Liner
-
-> **Good state architecture stores only essential state, derives computed values, keeps state close to where it's used, and uses the right tool for local, global, and server state to improve scalability and performance.**
-# Important State Management Principles
-
-## Q: What are the important state management principles?
+## What are the important state management principles?
 
 - Keep state minimal.
 - Avoid duplicating state.
@@ -3871,172 +2417,10 @@ Features:
 | Shared across sessions | Temporary UI state |
 | Managed by TanStack Query | Managed by React/Redux |
 
-### Interview One-Liner
-
-> **Server state belongs to the backend and requires fetching, caching, and synchronization, while client state exists only in the UI and is managed locally.**
 
 ---
 
-# JavaScript Garbage Collector (GC)
 
-## What is Garbage Collection?
-
-Garbage Collection (GC) is JavaScript's automatic memory management system that frees memory occupied by objects that are no longer reachable.
-
-Modern JavaScript engines such as **V8**, **SpiderMonkey**, and **JavaScriptCore** automatically perform garbage collection.
-
----
-
-## Mark-and-Sweep Algorithm
-
-### Step 1 — Mark
-
-GC starts from **root objects** such as:
-
-- Global variables
-- Execution stack
-- Closures
-- Active timers
-- Event listeners
-
-It recursively marks every reachable object.
-
-```text
-Roots
-  │
-  ▼
-Reachable Objects
-```
-
----
-
-### Step 2 — Sweep
-
-Objects that were **not marked** are unreachable and are removed from memory.
-
-```text
-Reachable ✓ Keep
-
-Unreachable ✗ Remove
-```
-
----
-
-## Modern V8 Optimizations
-
-V8 improves GC using:
-
-- Generational GC
-- Incremental GC
-- Concurrent GC
-- Parallel GC
-
-These techniques reduce pause times and improve application responsiveness.
-
----
-
-## Interview One-Liner
-
-> **JavaScript uses a mark-and-sweep garbage collector that starts from root references, marks reachable objects, and automatically removes unreachable objects. Modern engines optimize this using generational, incremental, and concurrent garbage collection.**
-
----
-
-# JavaScript Memory Leaks
-
-## What is a Memory Leak?
-
-A memory leak occurs when objects are no longer needed but are still referenced, preventing the garbage collector from reclaiming memory.
-
----
-
-## Common Causes
-
-### Detached DOM Nodes
-
-```javascript
-let element = document.getElementById("box");
-element.remove();
-// Still referenced
-```
-
----
-
-### Event Listeners
-
-```javascript
-window.addEventListener("resize", handler);
-
-// Cleanup
-window.removeEventListener("resize", handler);
-```
-
----
-
-### Timers
-
-```javascript
-const id = setInterval(fetchData, 1000);
-
-// Cleanup
-clearInterval(id);
-```
-
----
-
-### Closures
-
-Closures can unintentionally retain large objects.
-
-```javascript
-function createHandler(bigData) {
-  return () => console.log(bigData.length);
-}
-```
-
----
-
-### Unbounded Caches
-
-```javascript
-cache[key] = hugeObject;
-```
-
-Without eviction, memory keeps growing.
-
----
-
-## Debugging Memory Leaks
-
-Use Chrome DevTools:
-
-- Heap Snapshot
-- Allocation Timeline
-- Memory Panel
-
-Look for:
-
-- Detached DOM nodes
-- Growing retained objects
-- Increasing heap size
-
----
-
-## React Memory Leak Checklist
-
-- Cleanup `useEffect`
-- Remove subscriptions
-- Clear timers
-- Remove event listeners
-- Cancel network requests
-- Avoid stale refs
-
----
-
-## Interview One-Liner
-
-> **Most JavaScript memory leaks come from retained references such as detached DOM nodes, unremoved event listeners, long-lived closures, timers, and unbounded caches.**
-
----
 
 # React Performance Measurement Tools
 
@@ -4235,117 +2619,6 @@ Avoid for:
 
 ---
 
-# Frontend System Design
-
-## Design a Scalable E-commerce Frontend
-
-### 1. Architecture Style
-
-- Feature-based architecture
-- Microfrontends (if needed)
-- Component-driven design
-
----
-
-### 2. Folder Structure
-
-```text
-src/
-├── features/
-├── shared/
-├── components/
-├── hooks/
-├── services/
-├── routes/
-├── store/
-├── utils/
-└── assets/
-```
-
----
-
-### 3. State Management
-
-- Local → `useState`
-- Complex local → `useReducer`
-- Global → Redux Toolkit / Zustand
-- Server → TanStack Query
-
----
-
-### 4. Rendering Strategy
-
-- SSR → Product pages
-- CSR → Dashboard
-- SSG → Marketing pages
-- React Server Components where appropriate
-
----
-
-### 5. Performance
-
-- Code splitting
-- Lazy loading
-- Virtualization
-- Image optimization
-- CDN
-- Caching
-- Memoization
-- Bundle optimization
-
----
-
-### 6. API & Data Layer
-
-- API abstraction layer
-- Axios/Fetch wrapper
-- Retry mechanism
-- Request cancellation
-- TanStack Query caching
-
----
-
-### 7. Reliability & Observability
-
-- Error Boundaries
-- Logging
-- Monitoring
-- Performance metrics
-- Analytics
-- Feature flags
-
----
-
-### 8. Security
-
-- XSS protection
-- CSRF protection
-- CSP headers
-- Secure authentication
-- HTTPS
-- Token management
-
----
-
-### 9. Team Scalability
-
-- Design system
-- Shared component library
-- Coding standards
-- CI/CD
-- Automated testing
-- Documentation
-- Independent deployments
-
----
-
-## Interview One-Liner
-
-> For a scalable e-commerce frontend, I would use a feature-based architecture with Redux Toolkit for client state, TanStack Query for server state, SSR for SEO-critical pages, code splitting and virtualization for performance, a reusable design system for consistency, and strong observability and security practices to support large engineering teams.
-
-
-
-
 
 ## Why Can Memoization Hurt Performance?
 
@@ -4434,7 +2707,7 @@ Never optimize based on assumptions.
 
 > Memoization isn't free. `React.memo`, `useMemo`, and `useCallback` introduce comparison and memory overhead, so they should only be used where profiling shows a measurable performance benefit.
 
-# 3. Can you give a real example where using React.memo or useCallback made performance worse or was unnecessary?
+# Can you give a real example where using React.memo or useCallback made performance worse or was unnecessary?
 
 ## Senior-Level Answer (2 Minutes)
 
@@ -4450,7 +2723,7 @@ Never optimize based on assumptions.
 
 ---
 
-## Example 1 — React.memo on Cheap Components
+##  React.memo on Cheap Components
 
 ```tsx
 const Button = React.memo(() => {
@@ -5196,176 +3469,6 @@ const { data, isLoading, error } = useGetUsersQuery();
 
 ---
 
-# JavaScript — Difference Between `for...in` and `for...of`
-
-## 1. `for...in`
-
-Iterates over **keys, indexes, or property names**.
-
-Example:
-
-```javascript
-const arr = ["React", "Angular", "Vue"];
-
-for (const index in arr) {
-  console.log(index);
-}
-```
-
-Output:
-
-```text
-0
-1
-2
-```
-
-Object example:
-
-```javascript
-const user = {
-  name: "John",
-  age: 25,
-};
-
-for (const key in user) {
-  console.log(key);
-}
-```
-
-Output:
-
-```text
-name
-age
-```
-
----
-
-## 2. `for...of`
-
-Iterates over **values**.
-
-Works with:
-
-- Arrays
-- Strings
-- Maps
-- Sets
-- Any iterable object
-
-Example:
-
-```javascript
-const arr = ["React", "Angular", "Vue"];
-
-for (const value of arr) {
-  console.log(value);
-}
-```
-
-Output:
-
-```text
-React
-Angular
-Vue
-```
-
-String example:
-
-```javascript
-for (const ch of "React") {
-  console.log(ch);
-}
-```
-
-Output:
-
-```text
-R
-e
-a
-c
-t
-```
-
----
-
-# `for...in` vs `for...of`
-
-| Feature | `for...in` | `for...of` |
-|----------|------------|------------|
-| Iterates over | Keys / Indexes | Values |
-| Works on Objects | ✅ Yes | ❌ No (unless iterable) |
-| Works on Arrays | ✅ Yes | ✅ Yes |
-| Works on Strings | ❌ (indexes) | ✅ Characters |
-| Works on Maps | ❌ | ✅ |
-| Works on Sets | ❌ | ✅ |
-| Returns | Property names | Values |
-
----
-
-## Interview One-Liner
-
-- **`for...in`** → Iterates over object keys or array indexes.
-- **`for...of`** → Iterates over iterable values such as arrays, strings, maps, and sets.
-
-# `for...in` vs `for...of`
-
-## Important Differences
-
-| Feature | `for...in` | `for...of` |
-|----------|------------|------------|
-| **Returns** | Keys / Indexes | Values |
-| **Mostly used for** | Objects | Arrays / Iterables |
-| **Works on Objects** | ✅ Yes | ❌ No (unless iterable) |
-| **Works on Arrays** | ✅ Yes | ✅ Yes |
-| **Use Case** | Object properties | Array values |
-
-### Example
-
-#### `for...in`
-
-```javascript
-const user = {
-  name: "John",
-  age: 25,
-};
-
-for (const key in user) {
-  console.log(key);
-}
-```
-
-Output:
-
-```text
-name
-age
-```
-
----
-
-#### `for...of`
-
-```javascript
-const fruits = ["Apple", "Banana", "Orange"];
-
-for (const fruit of fruits) {
-  console.log(fruit);
-}
-```
-
-Output:
-
-```text
-Apple
-Banana
-Orange
-```
-
----
 
 # React State Updates
 

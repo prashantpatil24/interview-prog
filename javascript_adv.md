@@ -84,7 +84,7 @@ console.log(NaN ?? 10);               // NaN
 # Difference between `??` and `||`
 
 # Difference Between `??` (Nullish Coalescing) and `||` (Logical OR)
-
+ 
 | Feature | `??` (Nullish Coalescing) | `||` (Logical OR) |
 |---------|----------------------------|-------------------|
 | **Returns right side when** | Left side is `null` or `undefined` | Left side is any **falsy** value |

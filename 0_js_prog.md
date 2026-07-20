@@ -855,6 +855,26 @@ console.log(findSumOfEqualTarget([2,3,8,7,6], 9));
 [0, 3]
 ```
 
+```javascript
+function findSumOfEqualTarget(arr, target) {
+    const map = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        const diff = target - arr[i];
+
+        if (diff in map) {
+            return [map[diff], i];
+        }
+
+        map[arr[i]] = i;
+    }
+
+    return [];
+}
+
+console.log(findSumOfEqualTarget([2, 3, 8, 7, 6], 9));
+```
+
 ### Dry Run
 
 | Index | Value | Required | Map |

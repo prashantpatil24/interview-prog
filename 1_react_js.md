@@ -950,17 +950,11 @@ const styles = {
 ## Source Code
 
 ```jsx
-import React, {
-  useEffect,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 
 export default function App() {
-  const [count, setCount] =
-    useState(0);
-
-  const [running, setRunning] =
-    useState(false);
+  const [count, setCount] = useState(0);
+  const [running, setRunning] = useState(false);
 
   useEffect(() => {
     if (!running) return;
@@ -977,15 +971,11 @@ export default function App() {
     <div>
       <h2>Counter : {count}</h2>
 
-      <button
-        onClick={() => setRunning(true)}
-      >
+      <button onClick={() => setRunning(true)} >
         Start
       </button>
 
-      <button
-        onClick={() => setRunning(false)}
-      >
+      <button onClick={() => setRunning(false)} >
         Stop
       </button>
 
@@ -1041,10 +1031,7 @@ export default function App() {
 ## Source Code
 
 ```jsx
-import React, {
-  useEffect,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 
 const styles = {
   outer: {
@@ -1065,8 +1052,7 @@ const styles = {
 };
 
 export default function App() {
-  const [progress, setProgress] =
-    useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -1075,7 +1061,6 @@ export default function App() {
           clearInterval(interval);
           return 100;
         }
-
         return prev + 10;
       });
     }, 1000);
@@ -1149,7 +1134,7 @@ export default function App() {
 ## Source Code
 
 ```jsx
-import React, {  useEffect,  useMemo, useState,} from "react";
+import React, {  useEffect,  useMemo, useState } from "react";
 
 const useDebounce = (value,  delay) => {
   const [ debouncedValue, setDebouncedValue ] = useState(value);
@@ -1166,10 +1151,7 @@ const useDebounce = (value,  delay) => {
   return debouncedValue;
 };
 
-const SearchBar = ({
-  search,
-  onChange,
-}) => (
+const SearchBar = ({ search, onChange }) => (
   <input
     value={search}
     onChange={onChange}
@@ -1177,9 +1159,7 @@ const SearchBar = ({
   />
 );
 
-const ProductList = ({
-  products,
-}) => {
+const ProductList = ({ products }) => {
   if (!products.length) {
     return <p>No products found.</p>;
   }
@@ -1200,23 +1180,17 @@ const ProductList = ({
 };
 
 export default function App() {
-  const [products, setProducts] =
-    useState([]);
+  const [products, setProducts] =  useState([]);
 
-  const [search, setSearch] =
-    useState("");
+  const [search, setSearch] = useState("");
 
-  const [loading, setLoading] =
-    useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const [error, setError] =
-    useState("");
+  const [error, setError] = useState("");
 
-  const [searching, setSearching] =
-    useState(false);
+  const [searching, setSearching] = useState(false);
 
-  const debouncedSearch =
-    useDebounce(search, 3000);
+  const debouncedSearch =  useDebounce(search, 3000);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -1294,8 +1268,6 @@ export default function App() {
 
 ---
 
----
-
 # 12. Todo App (Add, Edit, Delete)
 
 ## Features
@@ -1360,9 +1332,7 @@ export default function App() {
 
   // Edit Todo
   const editTodo = (id) => {
-    const selected = todo.find(
-      (item) => item.id === id
-    );
+    const selected = todo.find(item => item.id === id);
 
     setTask(selected?.name || "");
     setEditId(id);
@@ -1373,10 +1343,7 @@ export default function App() {
     setTodo((prev) =>
       prev.map((item) =>
         item.id === editId
-          ? {
-              ...item,
-              name: task,
-            }
+          ? { ...item, name: task }
           : item
       )
     );
@@ -1499,9 +1466,7 @@ export default function App() {
 ## Source Code
 
 ```jsx
-import React, {
-  useState,
-} from "react";
+import React, { useState } from "react";
 
 const formConfig = [
   {
@@ -1542,25 +1507,17 @@ const formConfig = [
 ];
 
 export default function App() {
-  const [formData, setFormData] =
-    useState({});
+  const [formData, setFormData] = useState({});
 
-  const handleChange = (
-    name,
-    value
-  ) => {
+  const handleChange = (  name, value  ) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleCheckboxChange = (
-    name,
-    option
-  ) => {
-    const current =
-      formData[name] || [];
+  const handleCheckboxChange = (name,option  ) => {
+    const current = formData[name] || [];
 
     const updated =
       current.includes(option)
@@ -1573,9 +1530,7 @@ export default function App() {
     handleChange(name, updated);
   };
 
-  const renderField = (
-    field
-  ) => {
+  const renderField = ( field ) => {
     switch (field.type) {
       case "text":
         return (
@@ -1679,9 +1634,7 @@ export default function App() {
     }
   };
 
-  const handleSubmit = (
-    e
-  ) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
   };

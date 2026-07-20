@@ -83,12 +83,143 @@ console.log(NaN ?? 10);               // NaN
 
 # Difference between `??` and `||`
 
-| `??` (Nullish Coalescing) | `||` (Logical OR) |
-|---------------------------|-------------------|
-| Returns right side only if left is `null` or `undefined` | Returns right side if left is **any falsy value** |
-| Preserves `0`, `false`, `''`, and `NaN` | Treats `0`, `false`, `''`, and `NaN` as false |
-| Best for default values when valid falsy values should be kept | Best for general boolean fallback logic |
+# Difference Between `??` (Nullish Coalescing) and `||` (Logical OR)
 
+| Feature | `??` (Nullish Coalescing) | `||` (Logical OR) |
+|---------|----------------------------|-------------------|
+| **Returns right side when** | Left side is `null` or `undefined` | Left side is any **falsy** value |
+| **Falsy values treated as missing?** | ❌ No | ✅ Yes |
+| **Preserves `0`** | ✅ Yes | ❌ No |
+| **Preserves `false`** | ✅ Yes | ❌ No |
+| **Preserves `''` (empty string)** | ✅ Yes | ❌ No |
+| **Preserves `NaN`** | ✅ Yes | ❌ No |
+| **Best Use Case** | Default values while keeping valid falsy values | General boolean fallback logic |
+
+---
+
+## Example 1: Using `||`
+
+```javascript
+const count = 0;
+
+console.log(count || 10);
+```
+
+### Output
+
+```text
+10
+```
+
+**Why?**
+
+`0` is a falsy value, so `||` returns the right-hand side.
+
+---
+
+## Example 2: Using `??`
+
+```javascript
+const count = 0;
+
+console.log(count ?? 10);
+```
+
+### Output
+
+```text
+0
+```
+
+**Why?**
+
+`??` only checks for `null` or `undefined`, so `0` is preserved.
+
+---
+
+## Example 3: Empty String
+
+```javascript
+const name = "";
+
+console.log(name || "Guest");
+console.log(name ?? "Guest");
+```
+
+### Output
+
+```text
+Guest
+
+```
+
+*(Second output is an empty string.)*
+
+---
+
+## Example 4: Boolean `false`
+
+```javascript
+const isAdmin = false;
+
+console.log(isAdmin || true);
+console.log(isAdmin ?? true);
+```
+
+### Output
+
+```text
+true
+false
+```
+
+---
+
+## Example 5: `null`
+
+```javascript
+const user = null;
+
+console.log(user || "Guest");
+console.log(user ?? "Guest");
+```
+
+### Output
+
+```text
+Guest
+Guest
+```
+
+---
+
+## Example 6: `undefined`
+
+```javascript
+let city;
+
+console.log(city || "Pune");
+console.log(city ?? "Pune");
+```
+
+### Output
+
+```text
+Pune
+Pune
+```
+
+---
+
+## Interview Tip
+
+- Use **`??`** when you want a default value **only if the value is `null` or `undefined`**.
+- Use **`||`** when **any falsy value (`0`, `false`, `''`, `NaN`, `null`, `undefined`)** should trigger the default.
+
+### Easy Memory Trick
+
+- **`??` → Only `null` or `undefined`**
+- **`||` → Any falsy value**
 ---
 
 ## Example Comparison

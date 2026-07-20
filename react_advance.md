@@ -1,5 +1,16 @@
 ## React Interview Question   
 
+# Controlled vs Uncontrolled Components
+
+| Controlled Component         | Uncontrolled Component                            |
+| ---------------------------- | ------------------------------------------------- |
+| React controls the form data | DOM controls the form data                        |
+| Uses `useState`              | Uses `useRef`                                     |
+| Value stored in React state  | Value stored in DOM                               |
+| Re-renders on every change   | No re-render while typing                         |
+| Easy validation              | Validation is manual                              |
+| Recommended for most forms   | Good for simple forms or third-party integrations |
+
 ## What is Webpack?
 
 Webpack is a module bundler.

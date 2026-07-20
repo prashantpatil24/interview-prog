@@ -1,5 +1,252 @@
 ## Javascript Interview Question   
 
+# Compiled vs Interpreted Languages
+
+| Language | Compiled | Interpreted |
+|----------|----------|-------------|
+| **C** | ✅ Yes | ❌ No |
+| **C++** | ✅ Yes | ❌ No |
+| **Java** | ✅ Compiles to Bytecode | ✅ JVM interprets/JIT compiles |
+| **Python** | ✅ Compiles to Bytecode (`.pyc`) | ✅ PVM interprets the bytecode |
+| **JavaScript** | ✅ Modern engines use JIT compilation | ✅ Executes in the JavaScript engine |
+
+---
+
+# What is a Compiled Language?
+
+A **compiled language** converts the entire source code into machine code **before execution**.
+
+### Flow
+
+```text
+Source Code
+      │
+      ▼
+ Compiler
+      │
+      ▼
+Machine Code (.exe)
+      │
+      ▼
+Execution
+```
+
+### Examples
+
+- C
+- C++
+
+### Advantages
+
+- Faster execution
+- Optimized machine code
+- Errors detected during compilation
+
+---
+
+# What is an Interpreted Language?
+
+An **interpreted language** executes the code through an interpreter instead of generating a standalone executable.
+
+### Flow
+
+```text
+Source Code
+      │
+      ▼
+Interpreter
+      │
+      ▼
+Execute Line by Line / Bytecode
+```
+
+### Advantages
+
+- Platform independent
+- Faster development
+- Easier debugging
+
+---
+
+# Java Execution Flow
+
+Java is **both compiled and interpreted**.
+
+### Flow
+
+```text
+Hello.java
+      │
+      ▼
+ javac Compiler
+      │
+      ▼
+Hello.class (Bytecode)
+      │
+      ▼
+JVM
+      │
+      ▼
+JIT Compiler
+      │
+      ▼
+Machine Code
+      │
+      ▼
+CPU
+```
+
+### Why?
+
+- `javac` compiles Java source code into **bytecode**.
+- The **JVM** executes the bytecode.
+- The **JIT (Just-In-Time) Compiler** converts frequently executed bytecode into native machine code for better performance.
+
+---
+
+# Python Execution Flow
+
+Python also uses a hybrid approach.
+
+### Flow
+
+```text
+main.py
+     │
+     ▼
+Python Compiler
+     │
+     ▼
+.pyc (Bytecode)
+     │
+     ▼
+PVM (Python Virtual Machine)
+     │
+     ▼
+Execution
+```
+
+### Why?
+
+- Python first compiles source code into **bytecode (`.pyc`)**.
+- The **Python Virtual Machine (PVM)** interprets and executes the bytecode.
+
+---
+
+# JavaScript Execution Flow
+
+Modern JavaScript engines (such as **Google V8**) use **Just-In-Time (JIT) compilation**.
+
+### Flow
+
+```text
+JavaScript Code
+        │
+        ▼
+Parser
+        │
+        ▼
+AST (Abstract Syntax Tree)
+        │
+        ▼
+Interpreter
+        │
+        ▼
+Profiler
+        │
+        ▼
+JIT Compiler
+        │
+        ▼
+Optimized Machine Code
+```
+
+### Common JavaScript Engines
+
+| Browser | Engine |
+|----------|--------|
+| Chrome | V8 |
+| Edge | V8 |
+| Firefox | SpiderMonkey |
+| Safari | JavaScriptCore |
+
+---
+
+# Easy Memory Trick
+
+### C / C++
+
+```text
+Source Code
+      │
+Compiler
+      │
+Machine Code
+      │
+CPU
+```
+
+---
+
+### Java
+
+```text
+.java
+   │
+javac
+   │
+Bytecode
+   │
+JVM + JIT
+   │
+Machine Code
+```
+
+---
+
+### Python
+
+```text
+.py
+ │
+Compiler
+ │
+.pyc
+ │
+PVM
+ │
+Execution
+```
+
+---
+
+### JavaScript
+
+```text
+JavaScript
+      │
+Interpreter
+      │
+JIT Compiler
+      │
+Machine Code
+```
+
+---
+
+# Interview Answer (1 Minute)
+
+A **compiled language** converts source code directly into machine code before execution. Languages like **C and C++** follow this model, resulting in fast execution.
+
+An **interpreted language** executes code through an interpreter, providing flexibility and portability.
+
+However, modern languages like **Java, Python, and JavaScript** use a **hybrid approach**:
+
+- **Java** compiles source code into **bytecode**, which is executed by the **JVM** and optimized using the **JIT compiler**.
+- **Python** compiles source code into **bytecode (`.pyc`)**, which is executed by the **Python Virtual Machine (PVM)**.
+- **JavaScript** engines such as **V8** initially interpret the code and then use **Just-In-Time (JIT) compilation** to optimize frequently executed code.
+
+So, Java, Python, and modern JavaScript are **neither purely compiled nor purely interpreted**—they combine both techniques to balance portability and performance.
 
 # Difference between Memoization and Caching
 

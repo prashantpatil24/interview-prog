@@ -2,7 +2,7 @@
 
 ## React Interview Question   
 
-#Controlled vs Uncontrolled Components
+# Controlled vs Uncontrolled Components
 
 | Controlled Component         | Uncontrolled Component                            |
 | ---------------------------- | ------------------------------------------------- |

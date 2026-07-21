@@ -126,6 +126,20 @@ console.log(myFlat(biDimensionalArr));
 44,55,66,
 77,88,99
 ]
+
+function flatArr(arr, result = {}) {
+    arr.forEach(item => {
+        if (Array.isArray(item)) {
+            flatArr(item, result);
+        } else {
+            result[item] = (result[item] || 0) + 1 ;
+        }
+    });
+
+    return result;
+}
+
+console.log(flatArr([1, 2, 3, [4, 5, [6, 7]]]));
 ```
 
 ⬆️ [Back to Top](#-table-of-contents)
